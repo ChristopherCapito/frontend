@@ -1,65 +1,33 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react';
+import Link from 'next/link';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+const Home = () => (
+  <div>
+    <p className="text-light text-lg font-medium lg:text-2xl lg:leading-tight">
+      I'm a freelance developer who ideates and develops projects. Sometimes alone, sometimes, for larger projects, with
+      my team over at Das Andere Studio.
+    </p>
+    <div className="grid grid-cols-1 lg:grid-cols-3 text-light pt-8 lg:pt-32">
+      <div className="pb-10">
+        <p className="lg:text-md font-medium ">Why don't you see some</p>
+        <Link href="/projects">
+          <a className="text-md lg:text-xl leading-none font-medium">projects</a>
+        </Link>
+      </div>
+      <div className="pb-10">
+        <p className="lg:text-md font-medium">Find out more stuff</p>
+        <Link href="/projects">
+          <a className="text-md lg:text-xl leading-none font-medium">about me</a>
+        </Link>
+      </div>
+      <div className="pb-10">
+        <p className="lg:text-md font-medium">Don't be shy, go and</p>
+        <Link href="/projects">
+          <a className="text-md lg:text-xl leading-none font-medium">say hi</a>
+        </Link>
+      </div>
     </div>
-  )
-}
+  </div>
+);
+
+export default Home;
