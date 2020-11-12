@@ -4,22 +4,33 @@ import PropTypes from 'prop-types';
 
 const Card = ({ project }) => {
   const imageUrl = process.env.NODE_ENV !== 'development' ? project.image.url : process.env.API_URL + project.image.url;
+
+  const projectNumber = project.id < 10 ? `0${project.id}.` : project.id;
+
+  const direction = project.id % 2 === 0 ? 'row-start-1' : '';
+
   return (
-    <Link href={{ pathname: 'project', query: { id: project.id } }}>
-      <a className="">
-        <div className="">
-          <div className="">
-            <img src={imageUrl} alt={project.image.url} height="100" />
+    <div className="mb-16 lg:mb-48">
+      <Link href={{ pathname: 'project', query: { id: project.id } }}>
+        <div className="md:grid md:grid-cols-2 gap-16">
+          <div className="mb-8 md:mb-0">
+            <img
+              className="object-cover w-full sm:h-thumb md:h-midThumb lg:h-largeThumb"
+              src={imageUrl}
+              alt={project.image.url}
+            />
           </div>
-          <div className="">
-            <p id="title" className="">
-              {project.title}
+          <div className={direction}>
+            <p id="title" className="text-lg lg:text-xl font-medium my-2">
+              <p className="text-light leading-none">
+                <span className="text-accent leading-none">{projectNumber}</span> {project.title}
+              </p>
             </p>
-            <p className="">{project.excerpt}</p>
+            <p className="font-light leading-tight md:text-sm lg:text-lg">{project.excerpt}</p>
           </div>
         </div>
-      </a>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

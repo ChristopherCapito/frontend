@@ -8,10 +8,10 @@ const Footer = () => (
     <hr className="my-3" />
     <div className="lg:flex lg:flex-row-reverse lg:justify-end">
       <div className="hidden lg:flex lg:flex-col justify-between">
-        <a>GitHub</a>
-        <a>LinkedIn</a>
-        <a>XING</a>
-        <a>Instagram</a>
+        <a href="https://github.com/ChristopherCapito">GitHub</a>
+        <a href="https://de.linkedin.com/in/christopher-capito-41863b145">LinkedIn</a>
+        <a href="https://www.xing.com/profile/Christopher_Capito">XING</a>
+        <a href="https://www.instagram.com/capito.rocks/">Instagram</a>
       </div>
       <div className="flex lg:flex-col justify-between mb-4 lg:mb-0 lg:mr-20">
         <Link href="/">
@@ -67,10 +67,11 @@ const Footer = () => (
       </div>
       <div className="hidden lg:flex items-center">
         <p className="mr-4">Follow me</p>
-        <FontAwesomeIcon className="text-icon mr-2" icon={faLinkedin} />
-        <FontAwesomeIcon className="text-icon mr-2" icon={faGithubSquare} />
-        <FontAwesomeIcon className="text-icon mr-2" icon={faInstagramSquare} />
-        <FontAwesomeIcon className="text-icon" icon={faXingSquare} />
+
+        <a href="https://de.linkedin.com/in/christopher-capito-41863b145"><FontAwesomeIcon className="text-icon mr-2" icon={faLinkedin} /></a>
+        <a href="https://github.com/ChristopherCapito"><FontAwesomeIcon className="text-icon mr-2" icon={faGithubSquare} /></a>
+        <a href="https://www.instagram.com/capito.rocks/"><FontAwesomeIcon className="text-icon mr-2" icon={faInstagramSquare} /></a>
+        <a href="https://www.xing.com/profile/Christopher_Capito"><FontAwesomeIcon className="text-icon" icon={faXingSquare} /></a>
       </div>
     </div>
   </footer>

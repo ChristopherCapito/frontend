@@ -27,8 +27,18 @@ module.exports = {
       '2xl': '90px',
       '3xl': '120px',
     },
+    height: {
+      thumb: '176px',
+      midThumb: '300px',
+      largeThumb: '430px',
+    },
+    maxHeight: {
+      thumb: '176px',
+      largeThumb: '430px',
+    },
     maxWidth: {
       hero: '1518px',
+      largeThumb: '736px',
     },
     extend: {},
   },

@@ -7,7 +7,7 @@ const Home = () => (
       I'm a freelance developer who ideates and develops projects. Sometimes alone, sometimes, for larger projects, with
       my team over at Das Andere Studio.
     </p>
-    <div className="grid grid-cols-1 lg:grid-cols-3 text-light pt-8 lg:pt-32">
+    <div className="grid grid-cols-1 lg:grid-cols-3 text-light pt-8 lg:pt-16">
       <div className="pb-10">
         <p className="lg:text-md font-medium ">Why don't you see some</p>
         <Link href="/projects">

@@ -29,3 +29,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1640px;
+  }
+
+  .xlarge {
+    margin-bottom: 200px;
+  }
+}
