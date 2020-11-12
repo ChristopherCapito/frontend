@@ -2,7 +2,7 @@
 
 export default function Custom404() {
   return (
-    <div className="mb-32 w-8/12">
+    <div className="mb-32 w-7/12">
       <h1 className="text-light text-lg lg:text-xl">
         I could not find what you are looking for. <span className="text-base">(This is a 404 page)</span>
       </h1>
