@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const Nav = () => (
-  <nav className="py-12">
+  <nav className="py-12 container mx-auto px-8">
     <div className="flex justify-between items-end">
       <div className="flex-grow text-light mr-6 lg:mr-0">
         <Link href="/">

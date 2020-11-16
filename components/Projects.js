@@ -30,5 +30,5 @@ const Projects = ({ projects }) => {
 export default Projects;
 
 Projects.propTypes = {
-  projects: PropTypes.object,
+  projects: PropTypes.array.isRequired,
 };

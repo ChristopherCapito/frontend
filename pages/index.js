@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const Home = () => (
-  <div>
+  <div className="container mx-auto px-8">
     <p className="text-light text-lg font-medium lg:text-2xl lg:leading-tight">
       I'm a freelance developer who ideates and develops projects. Sometimes alone, sometimes, for larger projects, with
       my team over at Das Andere Studio.
@@ -16,13 +16,13 @@ const Home = () => (
       </div>
       <div className="pb-10">
         <p className="lg:text-md font-medium">Find out more stuff</p>
-        <Link href="/projects">
+        <Link href="/about">
           <a className="text-md lg:text-xl leading-none font-medium">about me</a>
         </Link>
       </div>
       <div className="pb-10">
         <p className="lg:text-md font-medium">Don't be shy, go and</p>
-        <Link href="/projects">
+        <Link href="/contact">
           <a className="text-md lg:text-xl leading-none font-medium">say hi</a>
         </Link>
       </div>

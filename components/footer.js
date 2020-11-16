@@ -1,10 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { faLinkedin, faInstagramSquare, faGithubSquare, faXingSquare } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Icon from '@iconify/react';
+import xing from '@iconify/icons-simple-icons/xing';
+import linkedin from '@iconify/icons-simple-icons/linkedin';
+import github from '@iconify/icons-simple-icons/github';
+import instagram from '@iconify/icons-simple-icons/instagram';
 
 const Footer = () => (
-  <footer className="text-light mt-12">
+  <footer className="text-light mt-12 container mx-auto px-8">
     <hr className="my-3" />
     <div className="lg:flex lg:flex-row-reverse lg:justify-end">
       <div className="hidden lg:flex lg:flex-col justify-between">
@@ -45,12 +48,12 @@ const Footer = () => (
         <div className="flex flex-col lg:hidden justify-between">
           <p>Follow me</p>
           <div className="flex justify-between">
-            <FontAwesomeIcon className="text-icon" icon={faLinkedin} />
-            <FontAwesomeIcon className="text-icon" icon={faGithubSquare} />
+            <Icon className="text-icon" icon={linkedin} />
+            <Icon className="text-icon" icon={github} />
           </div>
           <div className="flex justify-between">
-            <FontAwesomeIcon className="text-icon" icon={faInstagramSquare} />
-            <FontAwesomeIcon className="text-icon" icon={faXingSquare} />
+            <Icon className="text-icon" icon={instagram} />
+            <Icon className="text-icon" icon={xing} />
           </div>
         </div>
       </div>
@@ -67,11 +70,18 @@ const Footer = () => (
       </div>
       <div className="hidden lg:flex items-center">
         <p className="mr-4">Follow me</p>
-
-        <a href="https://de.linkedin.com/in/christopher-capito-41863b145"><FontAwesomeIcon className="text-icon mr-2" icon={faLinkedin} /></a>
-        <a href="https://github.com/ChristopherCapito"><FontAwesomeIcon className="text-icon mr-2" icon={faGithubSquare} /></a>
-        <a href="https://www.instagram.com/capito.rocks/"><FontAwesomeIcon className="text-icon mr-2" icon={faInstagramSquare} /></a>
-        <a href="https://www.xing.com/profile/Christopher_Capito"><FontAwesomeIcon className="text-icon" icon={faXingSquare} /></a>
+        <a href="https://de.linkedin.com/in/christopher-capito-41863b145">
+          <Icon className="text-icon mr-2" icon={linkedin} />
+        </a>
+        <a href="https://github.com/ChristopherCapito">
+          <Icon className="text-icon mr-2" icon={github} />
+        </a>
+        <a href="https://www.instagram.com/capito.rocks/">
+          <Icon className="text-icon mr-2" icon={instagram} />
+        </a>
+        <a href="https://www.xing.com/profile/Christopher_Capito">
+          <Icon className="text-icon" icon={xing} />
+        </a>
       </div>
     </div>
   </footer>

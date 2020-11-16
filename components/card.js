@@ -21,11 +21,11 @@ const Card = ({ project }) => {
             />
           </div>
           <div className={direction}>
-            <p id="title" className="text-lg lg:text-xl font-medium my-2">
+            <div id="title" className="text-lg lg:text-xl font-medium my-2">
               <p className="text-light leading-none">
                 <span className="text-accent leading-none">{projectNumber}</span> {project.title}
               </p>
-            </p>
+            </div>
             <p className="font-light leading-tight md:text-sm lg:text-lg">{project.excerpt}</p>
           </div>
         </div>

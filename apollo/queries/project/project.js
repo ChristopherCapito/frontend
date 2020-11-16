@@ -5,11 +5,51 @@ const PROJECT_QUERY = gql`
     project(id: $id) {
       id
       title
-      content
-      image {
-        url
+      Frontmatter {
+        sectionNumber
+        sectionTitle
+        sectionDescription
+        frontmatterBackgroundImage {
+          url
+        }
+        Techstack {
+          technology
+        }
       }
-      published_at
+      Content {
+        __typename
+        ... on ComponentSubComponentsImageAndText {
+          sectionNumber
+          sectionTitle
+          text
+          media {
+            url
+          }
+          textOnLeft
+        }
+        __typename
+        ... on ComponentSubComponentsDoubleText {
+          sectionNumber
+          sectionTitle
+          textLeft
+          textRight
+        }
+        __typename
+        ... on ComponentSubComponentsDoubleMedia {
+          mediaLeft {
+            url
+          }
+          mediaRight {
+            url
+          }
+        }
+        __typename
+        ... on ComponentSubComponentsFullWidthMedia {
+          media {
+            url
+          }
+        }
+      }
     }
   }
 `;

@@ -13,11 +13,11 @@ const App = ({ Component, pageProps, apollo }) => (
       <title>Portfolio</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <div className="container mx-auto px-8">
-      <Nav />
-      <Component {...pageProps} />
-      <Footer />
-    </div>
+    {/* <div className="container mx-auto px-8"> */}
+    <Nav />
+    <Component {...pageProps} />
+    <Footer />
+    {/* </div> */}
   </ApolloProvider>
 );
 
