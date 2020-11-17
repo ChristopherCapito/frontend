@@ -25,6 +25,7 @@ const PROJECT_QUERY = gql`
           media {
             url
           }
+          altText
           textOnLeft
         }
         __typename
@@ -39,15 +40,18 @@ const PROJECT_QUERY = gql`
           mediaLeft {
             url
           }
+          altTextLeft
           mediaRight {
             url
           }
+          altTextRight
         }
         __typename
         ... on ComponentSubComponentsFullWidthMedia {
           media {
             url
           }
+          altText
         }
       }
     }

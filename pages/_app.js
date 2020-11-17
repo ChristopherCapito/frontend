@@ -10,14 +10,12 @@ import Footer from '../components/footer';
 const App = ({ Component, pageProps, apollo }) => (
   <ApolloProvider client={apollo}>
     <Head>
-      <title>Portfolio</title>
+      <title>Christopher Capito</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    {/* <div className="container mx-auto px-8"> */}
     <Nav />
     <Component {...pageProps} />
     <Footer />
-    {/* </div> */}
   </ApolloProvider>
 );
 

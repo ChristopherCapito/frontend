@@ -39,3 +39,7 @@ a {
     margin-bottom: 200px;
   }
 }
+
+.content-img {
+  max-height: 500px;
+}
