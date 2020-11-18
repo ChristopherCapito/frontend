@@ -8,6 +8,8 @@ const PROJECTS_QUERY = gql`
       excerpt
       image {
         url
+        caption
+        alternativeText
       }
     }
   }

@@ -11,6 +11,8 @@ const PROJECT_QUERY = gql`
         sectionDescription
         frontmatterBackgroundImage {
           url
+          caption
+          alternativeText
         }
         Techstack {
           technology
@@ -24,8 +26,9 @@ const PROJECT_QUERY = gql`
           text
           media {
             url
+            caption
+            alternativeText
           }
-          altText
           textOnLeft
         }
         __typename
@@ -39,19 +42,22 @@ const PROJECT_QUERY = gql`
         ... on ComponentSubComponentsDoubleMedia {
           mediaLeft {
             url
+            caption
+            alternativeText
           }
-          altTextLeft
           mediaRight {
             url
+            caption
+            alternativeText
           }
-          altTextRight
         }
         __typename
         ... on ComponentSubComponentsFullWidthMedia {
           media {
             url
+            caption
+            alternativeText
           }
-          altText
         }
       }
     }

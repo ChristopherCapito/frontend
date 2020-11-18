@@ -8,7 +8,7 @@ import node from '@iconify/icons-simple-icons/node-dot-js';
 import next from '@iconify/icons-simple-icons/next-dot-js';
 import strapi from '@iconify/icons-simple-icons/strapi';
 import bootstrap from '@iconify/icons-simple-icons/bootstrap';
-import tailwindcss from '@iconify/icons-simple-icons/tailwindcss';
+import tailwind from '@iconify/icons-simple-icons/tailwindcss';
 import propTypes from 'prop-types';
 import { FormatSectionNumber, getUrl } from '../../utils/formatFunctions';
 
@@ -36,26 +36,31 @@ function Frontmatter({
     node,
     next,
     strapi,
-    tailwindcss,
+    tailwind,
     bootstrap,
   };
 
   const techstack = Techstack.map((e) => (
-    <Icon key={e.technology} className="text-xl mr-6" title={e.technology} icon={iconList[e.technology]} />
+    <div key={e.technology} className="flex flex-col justify-center items-center mr-6 mb-6">
+      <Icon className="text-xl md:text-2xl mb-2 " title={e.technology} icon={iconList[e.technology]} />
+      <p className="capitalize">{e.technology}</p>
+    </div>
   ));
 
   return (
     <section title={altText} style={frontMatterStyle} name="projectFrontmatter" className="text-light">
-      <div className=" container mx-auto px-8 py-20">
-        <p className="text-accent text-xl font-medium leading-none">{FormatSectionNumber(sectionNumber)}</p>
-        <div className="grid grid-cols-2 gap-32">
+      <div className=" container mx-auto px-8 md:py-20">
+        <p className="text-accent text-lg md:text-xl font-medium leading-none">{FormatSectionNumber(sectionNumber)}</p>
+        <div className="grid lg:grid-cols-2 lg:gap-32">
           <div>
-            <h2 className="text-xl font-medium leading-none pb-8">{sectionTitle}</h2>
-            <p className="text-lg font-light leading-tight">{sectionDescription}</p>
+            <h2 className="text-lg md:text-xl font-medium leading-none pb-8">{sectionTitle}</h2>
+            <p className="text-base font-base md:text-lg md:font-light leading-tight">{sectionDescription}</p>
           </div>
-          <div>
-            <h2 className="text-xl font-medium leading-none mb-8">Techstack</h2>
-            <div className="flex">{techstack}</div>
+          <div className="flex flex-col justify-between">
+            <h2 className="text-lg md:text-xl font-medium leading-none pb-4 mt-16 lg:mt-0 md:pb-8 lg:pb-16">
+              Techstack
+            </h2>
+            <div className="flex flex-wrap">{techstack}</div>
           </div>
         </div>
       </div>
@@ -72,5 +77,4 @@ Frontmatter.propTypes = {
   frontmatterBackgroundImage: propTypes.string,
   altText: propTypes.string,
   Techstack: propTypes.array,
-  // altText: propTypes.string,
 };

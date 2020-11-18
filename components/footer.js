@@ -20,14 +20,14 @@ const Footer = () => (
         <Link href="/">
           <a>Home</a>
         </Link>
+        <Link href="/projects">
+          <a>Projects</a>
+        </Link>
         <Link href="/about">
           <a>About me</a>
         </Link>
         <Link href="/contact">
           <a>Contact</a>
-        </Link>
-        <Link href="/projects">
-          <a>Projects</a>
         </Link>
       </div>
 
@@ -48,12 +48,12 @@ const Footer = () => (
         <div className="flex flex-col lg:hidden justify-between">
           <p>Follow me</p>
           <div className="flex justify-between">
-            <Icon className="text-icon" icon={linkedin} />
-            <Icon className="text-icon" icon={github} />
+            <Icon className="text-lg" icon={linkedin} />
+            <Icon className="text-lg" icon={github} />
           </div>
           <div className="flex justify-between">
-            <Icon className="text-icon" icon={instagram} />
-            <Icon className="text-icon" icon={xing} />
+            <Icon className="text-lg" icon={instagram} />
+            <Icon className="text-lg" icon={xing} />
           </div>
         </div>
       </div>

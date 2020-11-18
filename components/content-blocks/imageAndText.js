@@ -2,22 +2,31 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { FormatSectionNumber, getUrl } from '../../utils/formatFunctions';
 
-const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, direction }) => (
-  <section className="bg-light text-black">
-    <div className="grid grid-cols-2">
-      <img className="w-full cover content-img object-cover" src={getUrl(media)} alt={altText} />
-      <div className={direction}>
-        <div className="px-24">
-          {sectionNumber !== null ? (
-            <p className="text-accent text-xl font-medium leading-none">{FormatSectionNumber(sectionNumber)}</p>
-          ) : null}
-          {sectionNumber !== null ? <p className="text-xl font-medium leading-none">{sectionTitle}</p> : null}
-          <p className="text-lg font-light leading-tight">{text}</p>
+const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, textLeft }) => {
+  let direction = 'flex justify-center items-center';
+  if (textLeft === true) direction = 'flex justify-center items-center lg:row-start-1';
+
+  return (
+    <section className="bg-light text-black">
+      <div className="grid lg:grid-cols-2">
+        <img className="w-full cover content-img block-img object-cover" src={getUrl(media)} alt={altText} />
+        <div className={direction}>
+          <div className="px-8 py-8 md:py-24 md:px-24">
+            {sectionNumber !== null ? (
+              <p className="text-accent text-lg md:text-xl font-medium leading-none">
+                {FormatSectionNumber(sectionNumber)}
+              </p>
+            ) : null}
+            {sectionNumber !== null ? (
+              <p className="text-lg mb-8 md:text-xl font-medium leading-none">{sectionTitle}</p>
+            ) : null}
+            <p className="text-base md:text-lg md:font-light leading-tight">{text}</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default ImageAndText;
 
@@ -27,5 +36,5 @@ ImageAndText.propTypes = {
   sectionTitle: propTypes.string,
   altText: propTypes.string,
   text: propTypes.string,
-  direction: propTypes.string,
+  textLeft: propTypes.bool,
 };

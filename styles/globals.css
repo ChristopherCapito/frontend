@@ -41,5 +41,28 @@ a {
 }
 
 .content-img {
-  max-height: 500px;
+  height: 50vh;
+}
+
+@media (min-width: 731px) {
+  .content-img {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-img {
+    min-height: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content-img {
+    min-height: 100%;
+  }
+}
+
+.tooltip {
+  display: inline;
+  position: relative;
 }
