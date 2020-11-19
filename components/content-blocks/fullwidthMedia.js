@@ -2,11 +2,12 @@ import propTypes from 'prop-types';
 import React from 'react';
 import { getUrl } from '../../utils/formatFunctions';
 
-const FullWidthMedia = ({ media, altText }) => (
-  <section>
-    <img className="w-full content-img object-cover" src={getUrl(media)} alt={altText} />
-  </section>
-);
+const FullWidthMedia = ({ media, altText }) =>
+  media && (
+    <section>
+      <img className="w-full content-img object-cover" src={media && getUrl(media)} alt={altText} />
+    </section>
+  );
 
 export default FullWidthMedia;
 

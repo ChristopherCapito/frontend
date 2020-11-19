@@ -13,44 +13,50 @@ const Project = () => {
   return (
     <Query query={PROJECT_QUERY} id={router.query.id}>
       {({ data: { project } }) => {
-        const content = project.Content.map((e) => {
-          switch (e.__typename) {
-            case 'ComponentSubComponentsFullWidthMedia':
-              return <FullWidthMedia media={e.media.url} altText={e.media.alternativeText} />;
-            case 'ComponentSubComponentsDoubleMedia':
-              return (
-                <DoubleMedia
-                  mediaLeft={e.mediaLeft.url}
-                  mediaRight={e.mediaRight.url}
-                  altTextLeft={e.mediaLeft.alternativeText}
-                  altTextRight={e.mediaRight.alternativeText}
-                />
-              );
-            case 'ComponentSubComponentsDoubleText':
-              return (
-                <DoubleText
-                  sectionNumber={e.sectionNumber}
-                  sectionTitle={e.sectionTitle}
-                  textLeft={e.textLeft}
-                  textRight={e.textRight}
-                />
-              );
-            case 'ComponentSubComponentsImageAndText':
-              return (
-                <ImageAndText
-                  media={e.media.url}
-                  alt={e.media.alternativeText}
-                  sectionNumber={e.sectionNumber}
-                  sectionTitle={e.sectionTitle}
-                  text={e.text}
-                  textLeft={e.textOnLeft}
-                />
-              );
-            default:
-              return null;
-          }
-        });
-
+        let content;
+        if (project.Content) {
+          content = project.Content.map((e, i) => {
+            switch (e.__typename) {
+              case 'ComponentSubComponentsFullWidthMedia':
+                if (e.media) return <FullWidthMedia key={i} media={e.media.url} altText={e.media.alternativeText} />;
+                return;
+              case 'ComponentSubComponentsDoubleMedia':
+                return (
+                  <DoubleMedia
+                    key={i}
+                    mediaLeft={e.mediaLeft && e.mediaLeft.url}
+                    mediaRight={e.mediaRight && e.mediaRight.url}
+                    altTextLeft={e.mediaLeft && e.mediaLeft.alternativeText}
+                    altTextRight={e.mediaRight && e.mediaRight.alternativeText}
+                  />
+                );
+              case 'ComponentSubComponentsDoubleText':
+                return (
+                  <DoubleText
+                    key={i}
+                    sectionNumber={e.sectionNumber}
+                    sectionTitle={e.sectionTitle}
+                    textLeft={e.textLeft}
+                    textRight={e.textRight}
+                  />
+                );
+              case 'ComponentSubComponentsImageAndText':
+                return (
+                  <ImageAndText
+                    key={i}
+                    media={e.media && e.media.url}
+                    alt={e.media && e.media.alternativeText}
+                    sectionNumber={e.sectionNumber}
+                    sectionTitle={e.sectionTitle}
+                    text={e.text}
+                    textLeft={e.textOnLeft}
+                  />
+                );
+              default:
+                return null;
+            }
+          });
+        }
         return (
           <>
             <section name="projectHeading" className="text-light container mx-auto px-8 pb-6">
@@ -59,14 +65,22 @@ const Project = () => {
                 <Moment format="DD.MM.YYYY">{project.published_at}</Moment>
               </p>
             </section>
-            <Frontmatter
-              frontmatterBackgroundImage={project.Frontmatter.frontmatterBackgroundImage.url}
-              sectionNumber={project.Frontmatter.sectionNumber}
-              sectionTitle={project.Frontmatter.sectionTitle}
-              sectionDescription={project.Frontmatter.sectionDescription}
-              altText={project.Frontmatter.frontmatterBackgroundImage.alternativeText}
-              Techstack={project.Frontmatter.Techstack}
-            />
+            {project.Frontmatter && (
+              <Frontmatter
+                frontmatterBackgroundImage={
+                  project.Frontmatter.frontmatterBackgroundImage && project.Frontmatter.frontmatterBackgroundImage.url
+                }
+                sectionNumber={project.Frontmatter.sectionNumber}
+                sectionTitle={project.Frontmatter.sectionTitle}
+                sectionDescription={project.Frontmatter.sectionDescription}
+                altText={
+                  project.Frontmatter.frontmatterBackgroundImage &&
+                  project.Frontmatter.frontmatterBackgroundImage.alternativeText
+                }
+                Techstack={project.Frontmatter.Techstack}
+              />
+            )}
+
             {content}
           </>
         );

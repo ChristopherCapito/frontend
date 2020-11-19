@@ -31,7 +31,7 @@ fetch(`${process.env.API_URL || 'http://localhost:1337'}/graphql`, {
       }
     });
 
-    fs.writeFile('./possibleTypes.json', JSON.stringify(possibleTypes), (err) => {
+    fs.writeFile('./utils/possibleTypes.json', JSON.stringify(possibleTypes), (err) => {
       if (err) {
         console.error('Error writing possibleTypes.json', err);
       } else {

@@ -21,6 +21,7 @@ function Frontmatter({
   Techstack,
 }) {
   // Get background image
+
   const frontMatterStyle = {
     backgroundImage: `url(${getUrl(frontmatterBackgroundImage)})`,
     backgroundSize: 'cover',
@@ -40,7 +41,7 @@ function Frontmatter({
     bootstrap,
   };
 
-  const techstack = Techstack.map((e) => (
+  const techstack = Techstack.filter((e) => e.technology !== null).map((e) => (
     <div key={e.technology} className="flex flex-col justify-center items-center mr-6 mb-6">
       <Icon className="text-xl md:text-2xl mb-2 " title={e.technology} icon={iconList[e.technology]} />
       <p className="capitalize">{e.technology}</p>
@@ -50,18 +51,37 @@ function Frontmatter({
   return (
     <section title={altText} style={frontMatterStyle} name="projectFrontmatter" className="text-light">
       <div className=" container mx-auto px-8 md:py-20">
-        <p className="text-accent text-lg md:text-xl font-medium leading-none">{FormatSectionNumber(sectionNumber)}</p>
+        {sectionNumber ? (
+          <p className="text-accent text-lg md:text-xl font-medium leading-none">
+            {FormatSectionNumber(sectionNumber)}
+          </p>
+        ) : (
+          <div />
+        )}
         <div className="grid lg:grid-cols-2 lg:gap-32">
           <div>
-            <h2 className="text-lg md:text-xl font-medium leading-none pb-8">{sectionTitle}</h2>
-            <p className="text-base font-base md:text-lg md:font-light leading-tight">{sectionDescription}</p>
+            {sectionTitle.length > 3 ? (
+              <h2 className="text-lg md:text-xl font-medium leading-none pb-8">{sectionTitle}</h2>
+            ) : (
+              <div />
+            )}
+            {sectionDescription ? (
+              <p className="text-base font-base md:text-lg md:font-light leading-tight">{sectionDescription}</p>
+            ) : (
+              <div />
+            )}
           </div>
-          <div className="flex flex-col justify-between">
-            <h2 className="text-lg md:text-xl font-medium leading-none pb-4 mt-16 lg:mt-0 md:pb-8 lg:pb-16">
-              Techstack
-            </h2>
-            <div className="flex flex-wrap">{techstack}</div>
-          </div>
+
+          {techstack.length > 0 ? (
+            <div className="flex flex-col justify-between">
+              <h2 className="text-lg md:text-xl font-medium leading-none pb-4 mt-16 lg:mt-0 md:pb-8 lg:pb-16">
+                Techstack
+              </h2>
+              <div className="flex flex-wrap">{techstack}</div>
+            </div>
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </section>
@@ -71,9 +91,9 @@ function Frontmatter({
 export default Frontmatter;
 
 Frontmatter.propTypes = {
-  sectionDescription: propTypes.string,
   sectionNumber: propTypes.number,
   sectionTitle: propTypes.string,
+  sectionDescription: propTypes.string,
   frontmatterBackgroundImage: propTypes.string,
   altText: propTypes.string,
   Techstack: propTypes.array,

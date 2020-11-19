@@ -5,6 +5,7 @@ const PROJECTS_QUERY = gql`
     projects {
       id
       title
+      number
       excerpt
       image {
         url

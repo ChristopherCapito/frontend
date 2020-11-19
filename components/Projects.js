@@ -9,14 +9,14 @@ const Projects = ({ projects }) => {
 
   return (
     <div>
-      <div className="" data-uk-grid>
+      <div className="">
         <div>
           {leftProjects.map((project) => (
             <Card project={project} key={`project__${project.id}`} />
           ))}
         </div>
         <div>
-          <div className="" data-uk-grid>
+          <div className="">
             {rightProjects.map((project) => (
               <Card project={project} key={`project__${project.id}`} />
             ))}
