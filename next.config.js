@@ -1,10 +1,15 @@
-require('dotenv').config();
-// next.config.js
+const withEnv = require('dotenv').config();
+const withPlugins = require('next-compose-plugins');
 
-module.exports = {
-  // Target must be serverless
+const nextConfig = {
   target: 'serverless',
   env: {
     API_URL: process.env.API_URL,
   },
 };
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withPlugins([[withBundleAnalyzer], [withEnv], [nextConfig]]);

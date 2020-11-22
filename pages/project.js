@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import Moment from 'react-moment';
 import Query from '../components/query';
 import PROJECT_QUERY from '../apollo/queries/project/project';
 import ImageAndText from '../components/content-blocks/imageAndText';
@@ -62,7 +61,7 @@ const Project = () => {
             <section name="projectHeading" className="text-light container mx-auto px-8 pb-6">
               <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
               <p className="text-accent text-tiny md:text-xl font-bold">
-                <Moment format="DD.MM.YYYY">{project.published_at}</Moment>
+                {new Intl.DateTimeFormat('fr').format(project.published_at)}
               </p>
             </section>
             {project.Frontmatter && (
