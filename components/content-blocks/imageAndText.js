@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import React from 'react';
 import { FormatSectionNumber, getUrl } from '../../utils/formatFunctions';
 
 const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, textLeft }) => {

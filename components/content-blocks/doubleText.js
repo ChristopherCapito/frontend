@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import React from 'react';
 import { FormatSectionNumber } from '../../utils/formatFunctions';
 
 const DoubleText = ({ sectionNumber, sectionTitle, textLeft, textRight }) =>

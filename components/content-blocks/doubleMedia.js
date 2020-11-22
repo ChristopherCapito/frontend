@@ -1,5 +1,4 @@
 import propTypes from 'prop-types';
-import React from 'react';
 import { getUrl } from '../../utils/formatFunctions';
 
 const DoubleMedia = ({ mediaLeft, altTextLeft, mediaRight, altTextRight }) =>

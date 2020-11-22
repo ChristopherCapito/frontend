@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Icon from '@iconify/react';
 import xing from '@iconify/icons-simple-icons/xing';

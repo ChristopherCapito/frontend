@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 // The useQuery hook is used to call the GraphQl API

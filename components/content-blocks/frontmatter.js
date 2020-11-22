@@ -1,4 +1,3 @@
-import React from 'react';
 import Icon from '@iconify/react';
 import javascript from '@iconify/icons-simple-icons/javascript';
 import html5 from '@iconify/icons-simple-icons/html5';
