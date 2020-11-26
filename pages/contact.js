@@ -38,7 +38,8 @@ const Contact = () => {
         </div>
       </div>
       <div className={`w-full ${formStyle}`} id="mailing">
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" action="/404" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <input
             className="w-full bg-transparent mb-4 p-0 placeholder-gray-900"
             type="text"
