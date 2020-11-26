@@ -27,6 +27,7 @@ module.exports = {
       icon: '40px',
       '2xl': '90px',
       '3xl': '120px',
+      '4xl': '240px',
     },
     height: {
       thumb: '176px',
@@ -44,5 +45,5 @@ module.exports = {
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
