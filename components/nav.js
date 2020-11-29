@@ -31,9 +31,6 @@ const Nav = () => (
             <Link href="/projects">
               <a className="mt-4 lg:inline-block lg:mt-0 text-light hover:text-light font-medium mr-4">Projects</a>
             </Link>
-            <Link href="/about">
-              <a className="mt-4 lg:inline-block lg:mt-0 text-light hover:text-light font-medium mr-4">About</a>
-            </Link>
             <Link href="/contact">
               <a className="mt-4 lg:inline-block lg:mt-0 text-light hover:text-light font-medium mr-4">Contact</a>
             </Link>
