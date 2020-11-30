@@ -7,7 +7,7 @@ const Card = ({ project }) => {
 
   return (
     <div className="mb-16 lg:mb-48">
-      <Link href={{ pathname: 'project', query: { id: project.id } }}>
+      <Link href={{ pathname: 'projects/[id]', query: { id: project.id } }}>
         <div className="md:grid md:grid-cols-2 gap-16">
           <div className="mb-8 md:mb-0">
             <img

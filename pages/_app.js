@@ -1,25 +1,26 @@
 import Head from 'next/head';
 import '../styles/globals.css';
-import { ApolloProvider } from '@apollo/react-hooks';
 import PropTypes from 'prop-types';
-import withData from '../utils/apollo';
+import { ApolloProvider } from '@apollo/client';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
+import { useApollo } from '../apollo/apolloClient';
 
-const App = ({ Component, pageProps, apollo }) => (
-  <ApolloProvider client={apollo}>
-    <Head>
-      <title>Christopher Capito</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <Nav />
-    <Component {...pageProps} />
-    <Footer />
-  </ApolloProvider>
-);
+export default function App({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps);
 
-// Wraps all components in the tree with the data provider
-export default withData(App);
+  return (
+    <ApolloProvider client={apolloClient}>
+      <Head>
+        <title>Christopher Capito</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Nav />
+      <Component {...pageProps} />
+      <Footer />
+    </ApolloProvider>
+  );
+}
 
 App.propTypes = {
   Component: PropTypes.any,
