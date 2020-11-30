@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
@@ -9,8 +8,8 @@ import Frontmatter from '../../components/content-blocks/frontmatter';
 import FullWidthMedia from '../../components/content-blocks/fullwidthMedia';
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient';
 
-export default function Project({ data: { project } }) {
-  const router = useRouter();
+export default function Project({ projects }) {
+  const project = projects[0];
 
   let content;
   if (project.Content) {
@@ -61,7 +60,7 @@ export default function Project({ data: { project } }) {
       <section name="projectHeading" className="text-light container mx-auto px-8 pb-6">
         <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
         <p className="text-accent text-tiny md:text-xl font-bold">
-          {new Intl.DateTimeFormat('fr').format(project.published_at)}
+          {new Intl.DateTimeFormat('fr').format(new Date(project.published_at))}
         </p>
       </section>
       {project.Frontmatter && (
@@ -93,27 +92,26 @@ export async function getStaticPaths() {
     query: PROJECTS_QUERY,
   });
   const paths = projects.map((project) => ({
-    params: { id: project.id },
+    params: { slug: project.slug },
   }));
-
-  console.log(`These are the path params:${JSON.stringify(paths)}`);
   return { paths, fallback: false };
 }
 
 export async function getStaticProps(context) {
   const apolloClient = initializeApollo();
-
-  const { data } = await apolloClient.query({
+  const {
+    data: { projects },
+  } = await apolloClient.query({
     query: PROJECT_QUERY,
-    variables: { id: context.params.id },
+    variables: { slug: context.params.slug },
   });
 
   return addApolloState(apolloClient, {
-    props: { data },
+    props: { projects },
     revalidate: 1,
   });
 }
 
 Project.propTypes = {
-  data: PropTypes.object,
+  projects: PropTypes.array,
 };

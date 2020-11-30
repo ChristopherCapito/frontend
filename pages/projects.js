@@ -1,18 +1,9 @@
-import { useQuery } from '@apollo/client';
+import PropTypes from 'prop-types';
 import Card from '../components/card';
 import PROJECTS_QUERY from '../apollo/queries/project/projects';
 import { addApolloState, initializeApollo } from '../apollo/apolloClient';
 
-export default function Portfolio() {
-  const { data } = useQuery(PROJECTS_QUERY, {
-    // Setting this value to true will make the component rerender when
-    // the "networkStatus" changes, so we are able to know if it is fetching
-    // more data
-    notifyOnNetworkStatusChange: true,
-  });
-
-  const { projects } = data;
-
+export default function Portfolio({ projects }) {
   const leftProjectsCount = Math.ceil(projects.length / 5);
   const leftProjects = projects.slice(0, leftProjectsCount);
   const rightProjects = projects.slice(leftProjectsCount, projects.length);
@@ -38,15 +29,20 @@ export default function Portfolio() {
   );
 }
 
+Portfolio.propTypes = {
+  projects: PropTypes.array.isRequired,
+};
+
 export async function getStaticProps() {
   const apolloClient = initializeApollo();
-
-  await apolloClient.query({
+  const {
+    data: { projects },
+  } = await apolloClient.query({
     query: PROJECTS_QUERY,
   });
 
   return addApolloState(apolloClient, {
-    props: {},
+    props: { projects },
     revalidate: 1,
   });
 }

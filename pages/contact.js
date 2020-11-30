@@ -7,11 +7,6 @@ import instagram from '@iconify/icons-simple-icons/instagram';
 import gmailIcon from '@iconify/icons-mdi/gmail';
 
 const Contact = () => {
-  // const [formButtonDisabled, setFormButtonDisabled] = useState(true);
-  // const [formButtonText, setFormButtonText] = useState('Send');
-  // const [name, setName] = useState('');
-  // const [mail, setMail] = useState('');
-  // const [formContent, setFormContent] = useState('');
   const [active, setActive] = useState(false);
 
   const formStyle = active ? '' : 'hidden';
@@ -32,7 +27,13 @@ const Contact = () => {
           <a className="m-8" href="https://www.instagram.com/capito.rocks/">
             <Icon icon={instagram} />
           </a>
-          <a className="m-8 cursor-pointer" onClick={(e) => setActive(true)}>
+          <a
+            className="m-8 cursor-pointer"
+            onClick={() => setActive(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={() => setActive(true)}
+          >
             <Icon icon={gmailIcon} />
           </a>
         </div>
@@ -44,7 +45,7 @@ const Contact = () => {
             className="w-full bg-transparent mb-4 p-0 placeholder-gray-900"
             type="text"
             required
-            netlify
+            netlify="true"
             name="name"
             id="name"
             placeholder="What's your name?"
@@ -55,7 +56,7 @@ const Contact = () => {
             className="w-full bg-transparent mb-4 p-0 placeholder-gray-900"
             type="email"
             required
-            netlify
+            netlify="true"
             name="email"
             id="email"
             placeholder="What's your email?"
@@ -66,7 +67,7 @@ const Contact = () => {
             className="w-full bg-transparent mb-4 p-0 placeholder-gray-900 "
             type="text"
             required
-            netlify
+            netlify="true"
             name="phone"
             id="phone"
             placeholder="What's your phone number?"
@@ -77,7 +78,7 @@ const Contact = () => {
             className="w-full bg-transparent p-0 placeholder-gray-900"
             type="text"
             required
-            netlify
+            netlify="true"
             autoFocus
             name="message"
             id="message"

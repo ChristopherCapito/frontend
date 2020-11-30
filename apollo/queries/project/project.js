@@ -1,10 +1,12 @@
 import gql from 'graphql-tag';
 
 const PROJECT_QUERY = gql`
-  query Projects($id: ID!) {
-    project(id: $id) {
+  query Projects($slug: String!) {
+    projects(where: { slug: $slug }) {
       id
+      slug
       title
+      published_at
       Frontmatter {
         sectionNumber
         sectionTitle
