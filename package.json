@@ -17,6 +17,7 @@
     "cross-fetch": "^3.0.6",
     "deepmerge": "^4.2.2",
     "dotenv": "^8.2.0",
+    "framer-motion": "^2.9.5",
     "global": "^4.4.0",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import Card from '../components/card';
 import PROJECTS_QUERY from '../apollo/queries/project/projects';
 import { addApolloState, initializeApollo } from '../apollo/apolloClient';

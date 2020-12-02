@@ -4,7 +4,7 @@ const Nav = () => (
   <nav className="py-12 container mx-auto px-8">
     <div className="flex justify-between items-end">
       <div className="flex-grow text-light mr-6 lg:mr-0">
-        <Link href="/">
+        <Link scroll={false} href="/">
           <span className="text-md font-bold tracking-tight">Christopher Capito</span>
         </Link>
 
@@ -25,13 +25,13 @@ const Nav = () => (
       <div>
         <div className="flex hidden lg:block lg:items-center lg:w-auto block">
           <div className="text-sm">
-            <Link href="/">
+            <Link scroll={false} href="/">
               <a className="mt-4 lg:inline-block lg:mt-0 text-light hover:text-light font-medium mr-4">Home</a>
             </Link>
-            <Link href="/projects">
+            <Link scroll={false} href="/projects">
               <a className="mt-4 lg:inline-block lg:mt-0 text-light hover:text-light font-medium mr-4">Projects</a>
             </Link>
-            <Link href="/contact">
+            <Link scroll={false} href="/contact">
               <a className="mt-4 lg:inline-block lg:mt-0 text-light hover:text-light font-medium mr-4">Contact</a>
             </Link>
           </div>

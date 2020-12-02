@@ -7,7 +7,7 @@ const Card = ({ project: { id, slug, image, number, excerpt, title } }) => {
 
   return (
     <div className="mb-16 lg:mb-48">
-      <Link href="/projects/[slug]" as={`/projects/${slug}`}>
+      <Link scroll={false} href="/projects/[slug]" as={`/projects/${slug}`}>
         <div className="md:grid md:grid-cols-2 gap-16">
           <div className="mb-8 md:mb-0">
             <img
