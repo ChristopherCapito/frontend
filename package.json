@@ -23,7 +23,6 @@
     "graphql-tag": "^2.11.0",
     "next": "10.0.1",
     "next-compose-plugins": "^2.2.1",
-    "next-on-netlify": "^2.6.3",
     "next-seo": "^4.17.0",
     "postcss-flexbugs-fixes": "^5.0.1",
     "prop-types": "^15.7.2",
