@@ -38,54 +38,71 @@ const Contact = () => {
           </a>
         </div>
       </div>
-      <div className={`w-full ${formStyle}`} id="mailing">
+      <div className={`w-full font-light text-lg md:text-xl lg:text-2xl ${formStyle}`} id="mailing">
+        <p className="py-8 text-xl md:text-2xl lg:text-3xl font-bold">Solving your problem starts here.</p>
         <form name="contact" method="POST" action="/success" data-netlify="true">
           <input type="hidden" name="form-name" value="contact" />
-          <input
-            className="w-full bg-transparent mb-4 p-0 placeholder-gray-900"
-            type="text"
-            required
-            netlify="true"
-            name="name"
-            id="name"
-            placeholder="What's your name?"
-            onFocus={(e) => (e.target.placeholder = '')}
-            onBlur={(e) => (e.target.placeholder = "What's your name?")}
-          />
-          <input
-            className="w-full bg-transparent mb-4 p-0 placeholder-gray-900"
-            type="email"
-            required
-            netlify="true"
-            name="email"
-            id="email"
-            placeholder="What's your email?"
-            onFocus={(e) => (e.target.placeholder = '')}
-            onBlur={(e) => (e.target.placeholder = "What's your email?")}
-          />
-          <input
-            className="w-full bg-transparent mb-4 p-0 placeholder-gray-900 "
-            type="text"
-            required
-            netlify="true"
-            name="phone"
-            id="phone"
-            placeholder="What's your phone number?"
-            onFocus={(e) => (e.target.placeholder = '')}
-            onBlur={(e) => (e.target.placeholder = "What's your phone number?")}
-          />
-          <TextareaAutosize
-            className="w-full bg-transparent p-0 placeholder-gray-900"
-            type="text"
-            required
-            netlify="true"
-            autoFocus
-            name="message"
-            id="message"
-            placeholder="How can I help?"
-            onFocus={(e) => (e.target.placeholder = '')}
-            onBlur={(e) => (e.target.placeholder = 'How can I help')}
-          />
+          <label className="p-0 m-0" htmlFor="name">
+            <p>What's your name?</p>
+            <input
+              className="w-full p-0 font-bold text-accent bg-transparent mb-12 md:mb-24 placeholder-gray-900"
+              type="text"
+              required
+              autoComplete
+              netlify="true"
+              name="name"
+              id="name"
+              placeholder="Your name."
+              onFocus={(e) => (e.target.placeholder = '')}
+              onBlur={(e) => (e.target.placeholder = 'Your name.')}
+            />
+          </label>
+
+          <label htmlFor="email">
+            <p>What's your email?</p>
+            <input
+              className="w-full p-0 font-bold text-accent bg-transparent mb-12 md:mb-24 placeholder-gray-900"
+              type="email"
+              autoComplete
+              required
+              netlify="true"
+              name="email"
+              id="email"
+              placeholder="Your email."
+              onFocus={(e) => (e.target.placeholder = '')}
+              onBlur={(e) => (e.target.placeholder = 'Your email.')}
+            />
+          </label>
+          <label htmlFor="phone">
+            <p>
+              What's your phone number? <span className="text-lg text-dark">(optional)</span>
+            </p>
+            <input
+              className="w-full p-0 font-bold text-accent bg-transparent mb-12 md:mb-24 placeholder-gray-900 "
+              type="tel"
+              autoComplete
+              netlify="true"
+              name="phone"
+              id="phone"
+              placeholder="Your phone number."
+              onFocus={(e) => (e.target.placeholder = '')}
+              onBlur={(e) => (e.target.placeholder = 'Your phone number.')}
+            />
+          </label>
+          <label htmlFor="message">
+            <p className="">How can I help?</p>
+            <TextareaAutosize
+              className="w-full font-bold text-accent  p-0 bg-transparent mb-12 md:mb-24 placeholder-gray-900"
+              type="text"
+              required
+              netlify="true"
+              name="message"
+              id="message"
+              placeholder="How can I help?"
+              onFocus={(e) => (e.target.placeholder = '')}
+              onBlur={(e) => (e.target.placeholder = 'Your message.')}
+            />
+          </label>
           <button className="bg-light text-black px-8" type="submit">
             Send
           </button>
