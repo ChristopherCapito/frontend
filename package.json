@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "node utils/schemaQuery && next dev",
     "build": "node utils/schemaQuery && next build",
-    "postbuild": "next-on-netlify",
     "start": "next start"
   },
   "dependencies": {
