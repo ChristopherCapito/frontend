@@ -1,32 +1,60 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 import { FormatSectionNumber, getUrl } from '../utils/formatFunctions';
 
-const Card = ({ project: { id, slug, image, number, excerpt, title } }) => {
-  const direction = id % 2 === 0 ? 'row-start-1' : '';
+const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const listItem = {
+    hidden: { x: left ? '-100vw' : '100vw' },
+    show: { x: 0, transition: { ease: 'anticipate', duration: 0.6 } },
+  };
 
   return (
-    <div className="mb-16 lg:mb-48">
-      <Link scroll={false} href="/projects/[slug]" as={`/projects/${slug}`}>
-        <div className="md:grid md:grid-cols-2 gap-16">
-          <div className="mb-8 md:mb-0">
-            <img
-              className="object-cover w-full sm:h-thumb md:h-midThumb lg:h-largeThumb"
-              src={image && getUrl(image.url)}
-              alt={image.alternativeText}
-            />
+    <motion.div
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ x: left ? '-100vw' : '100vw' }}
+      className="mb-16 lg:mb-48"
+    >
+      <Link scroll={false} href="/portfolio/[slug]" as={`/portfolio/${slug}`}>
+        <motion.div
+          className="md:grid md:grid-cols-2 grid-flow-row gap-16"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.img
+            src={image && getUrl(image.url)}
+            alt={image.alternativeText}
+            className={`${left && 'order-2'} mb-8 md:mb-0 object-cover w-full sm:h-thumb md:h-midThumb lg:h-largeThumb`}
+            variants={listItem}
+          />
+          <div className="order-1">
+            <motion.div variants={listItem}>
+              <div id="title" className="text-lg lg:text-xl font-medium my-2">
+                <p className="text-light leading-none">
+                  <span className="text-accent leading-none">{FormatSectionNumber(number)}</span> {title}
+                </p>
+              </div>
+            </motion.div>
+            <motion.div variants={listItem}>
+              <p className="font-light leading-tight md:text-sm lg:text-lg break-words">{excerpt}</p>
+            </motion.div>
           </div>
-          <div className={direction}>
-            <div id="title" className="text-lg lg:text-xl font-medium my-2">
-              <p className="text-light leading-none">
-                <span className="text-accent leading-none">{FormatSectionNumber(number)}</span> {title}
-              </p>
-            </div>
-            <p className="font-light leading-tight md:text-sm lg:text-lg">{excerpt}</p>
-          </div>
-        </div>
+        </motion.div>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

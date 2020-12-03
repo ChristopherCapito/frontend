@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { NextSeo } from 'next-seo';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
 import ImageAndText from '../../components/content-blocks/imageAndText';
@@ -55,8 +56,33 @@ export default function Project({ projects }) {
       }
     });
   }
+
+  const { sectionTitle, sectionDescription, Techstack } = project.Frontmatter;
+
+  const technologyKeywords = Techstack.filter((e) => e.technology !== null)
+    .map((e) => e.technology)
+    .join(', ');
+
+  const SEO = {
+    title: sectionTitle === (null || 0) || 'Project',
+    description: sectionDescription && sectionDescription,
+
+    additionalMetaTags: [
+      {
+        name: 'keywords',
+        content: `${technologyKeywords}, ${sectionTitle}`,
+      },
+    ],
+
+    openGraph: {
+      title: sectionTitle && sectionTitle,
+      description: sectionDescription && sectionDescription,
+    },
+  };
+
   return (
     <>
+      <NextSeo {...SEO} />
       <section name="projectHeading" className="text-light container mx-auto px-8 md:px-12  pb-6">
         <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
         <p className="text-accent text-tiny md:text-xl font-bold">
@@ -111,7 +137,3 @@ export async function getStaticProps(context) {
     revalidate: 1,
   });
 }
-
-Project.propTypes = {
-  projects: PropTypes.array,
-};

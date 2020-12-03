@@ -8,9 +8,9 @@ import { motion } from 'framer-motion';
 
 const Footer = () => (
   <motion.div
-    initial={{ y: '100%' }}
-    animate={{ y: 0 }}
-    exit={{ y: '100%' }}
+    initial={{ y: '100%', opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ opacity: 0 }}
     transition={{ ease: 'easeOut', duration: 0.2 }}
   >
     <footer className="text-light mt-12 container mx-auto px-8">
@@ -26,8 +26,8 @@ const Footer = () => (
           <Link scroll={false} href="/">
             <a>Home</a>
           </Link>
-          <Link scroll={false} href="/projects">
-            <a>Projects</a>
+          <Link scroll={false} href="/portfolio">
+            <a>Portfolio</a>
           </Link>
           <Link scroll={false} href="/contact">
             <a>Contact</a>

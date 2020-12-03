@@ -8,6 +8,7 @@ import { initGA } from '../utils/analytics';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 import { useApollo } from '../apollo/apolloClient';
+import SEO from '../next-seo.config';
 
 export default function App({ Component, pageProps, router }) {
   // Similar to componentDidMount and componentDidUpdate:
@@ -18,32 +19,33 @@ export default function App({ Component, pageProps, router }) {
   const apolloClient = useApollo(pageProps);
 
   return (
-    <ApolloProvider client={apolloClient}>
-      <DefaultSeo />
-      <Nav />
-      <AnimatePresence
-        exitBeforeEnter
-        onExitComplete={() => {
-          window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-          });
-        }}
-      >
-        <motion.div
-          key={router.route}
-          initial={{ x: '100%' }}
-          animate={{ x: 0, y: 0 }}
-          exit={{ x: '100%' }}
-          transition={{ ease: 'anticipate', duration: 0.6 }}
+    <>
+      <DefaultSeo {...SEO} />
+      <ApolloProvider client={apolloClient}>
+        <Nav />
+        <AnimatePresence
+          exitBeforeEnter
+          onExitComplete={() => {
+            window.scroll({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+          }}
         >
-          <Component {...pageProps} />
-        </motion.div>
-
+          <motion.div
+            key={router.route}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ ease: 'anticipate', duration: 0.6 }}
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
         <Footer />
-      </AnimatePresence>
-    </ApolloProvider>
+      </ApolloProvider>
+    </>
   );
 }
 
