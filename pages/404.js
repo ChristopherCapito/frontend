@@ -10,7 +10,6 @@ export default function Custom404() {
       title: '404',
       description: 'Do you hate it when your customer!s see 404 pages? Me too. Call me and we ll elimate them!',
     },
-    noindex: true,
   };
 
   return (

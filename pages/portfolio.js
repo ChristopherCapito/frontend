@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { motion, MotionConfig } from 'framer-motion';
 import { NextSeo } from 'next-seo';
-import Card from '../components/card';
+import dynamic from 'next/dynamic';
 import PROJECTS_QUERY from '../apollo/queries/project/projects';
 import { addApolloState, initializeApollo } from '../apollo/apolloClient';
 
@@ -15,6 +15,8 @@ export default function Portfolio({ projects }) {
       },
     },
   };
+
+  const Card = dynamic(() => import('../components/card'));
 
   const SEO = {
     title: 'Portfolio',

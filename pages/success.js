@@ -9,7 +9,6 @@ const Success = () => {
       title: 'Success!',
       description: 'You sent me a message! Thanks. I will be in touch.',
     },
-    noindex: true,
   };
 
   return (
