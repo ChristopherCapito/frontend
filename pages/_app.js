@@ -22,6 +22,7 @@ export default function App({ Component, pageProps, router }) {
     <>
       <DefaultSeo {...SEO} />
       <ApolloProvider client={apolloClient}>
+        <Nav />
         <AnimatePresence
           onExitComplete={() => {
             window.scroll({
@@ -31,12 +32,8 @@ export default function App({ Component, pageProps, router }) {
             });
           }}
         >
-          <Nav />
-
-          <motion.div key={router.route} transition={{ when: 'afterChildren' }}>
-            <Component {...pageProps} />
-            <Footer />
-          </motion.div>
+          <Component {...pageProps} />
+          <Footer />
         </AnimatePresence>
       </ApolloProvider>
     </>
