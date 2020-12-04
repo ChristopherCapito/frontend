@@ -42,8 +42,8 @@ export default function App({ Component, pageProps, router }) {
           >
             <Component {...pageProps} />
           </motion.div>
+          <Footer />
         </AnimatePresence>
-        <Footer />
       </ApolloProvider>
     </>
   );
