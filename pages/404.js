@@ -1,5 +1,4 @@
 // pages/404.js
-import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 
 export default function Custom404() {

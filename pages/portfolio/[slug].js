@@ -90,6 +90,8 @@ export default function Project({ projects }) {
     },
   };
 
+  console.log(project);
+
   return (
     <>
       <NextSeo {...SEO} />
@@ -143,6 +145,6 @@ export async function getStaticProps(context) {
 
   return addApolloState(apolloClient, {
     props: { projects },
-    revalidate: 1,
+    revalidate: false,
   });
 }
