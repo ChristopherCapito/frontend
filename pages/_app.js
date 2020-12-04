@@ -32,23 +32,7 @@ export default function App({ Component, pageProps, router }) {
             });
           }}
         >
-          <motion.div
-            key={router.route}
-            initial="pageInitial"
-            animate="pageAnimate"
-            exit="pageExit"
-            variants={{
-              pageInitial: {
-                opacity: 0,
-              },
-              pageAnimate: {
-                opacity: 1,
-              },
-              pageExit: {
-                opacity: 0,
-              },
-            }}
-          >
+          <motion.div key={router.route} transition={{ when: 'afterChildren' }}>
             <Component {...pageProps} />
             <Footer />
           </motion.div>
