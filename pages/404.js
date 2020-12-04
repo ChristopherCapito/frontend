@@ -15,12 +15,7 @@ export default function Custom404() {
   return (
     <>
       <NextSeo {...SEO} />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="w-full container px-8 mx-auto"
-      >
+      <div className="w-full container px-8 mx-auto">
         <div className="mb-32 w-7/12 ">
           <h1 className="text-light text-lg lg:text-xl">
             I could not find what you are looking for. <span className="text-base">(This is a 404 page)</span>
@@ -30,7 +25,7 @@ export default function Custom404() {
             Call me
           </a>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 }

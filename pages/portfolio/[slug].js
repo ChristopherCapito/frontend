@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
-import { motion } from 'framer-motion';
+
 import dynamic from 'next/dynamic';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
@@ -61,7 +61,13 @@ export default function Project({ projects }) {
     });
   }
 
-  const { sectionTitle, sectionDescription, Techstack } = project.Frontmatter;
+  const {
+    sectionTitle,
+    sectionNumber,
+    sectionDescription,
+    Techstack,
+    frontmatterBackgroundImage,
+  } = project.Frontmatter;
 
   const technologyKeywords = Techstack.filter((e) => e.technology !== null)
     .map((e) => e.technology)
@@ -85,7 +91,7 @@ export default function Project({ projects }) {
   };
 
   return (
-    <motion.div>
+    <>
       <NextSeo {...SEO} />
       <section name="projectHeading" className="text-light container mx-auto px-8 md:px-12  pb-6">
         <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
@@ -95,24 +101,23 @@ export default function Project({ projects }) {
       </section>
       {project.Frontmatter && (
         <Frontmatter
-          frontmatterBackgroundImage={
-            project.Frontmatter.frontmatterBackgroundImage && project.Frontmatter.frontmatterBackgroundImage.url
-          }
-          sectionNumber={project.Frontmatter.sectionNumber}
-          sectionTitle={project.Frontmatter.sectionTitle}
-          sectionDescription={project.Frontmatter.sectionDescription}
-          altText={
-            project.Frontmatter.frontmatterBackgroundImage &&
-            project.Frontmatter.frontmatterBackgroundImage.alternativeText
-          }
-          Techstack={project.Frontmatter.Techstack}
+          frontmatterBackgroundImage={frontmatterBackgroundImage && frontmatterBackgroundImage.url}
+          sectionNumber={sectionNumber}
+          sectionTitle={sectionTitle}
+          sectionDescription={sectionDescription}
+          altText={frontmatterBackgroundImage && frontmatterBackgroundImage.alternativeText}
+          Techstack={Techstack}
         />
       )}
 
       {content}
-    </motion.div>
+    </>
   );
 }
+
+Project.propTypes = {
+  projects: PropTypes.array,
+};
 
 export async function getStaticPaths() {
   const apolloClient = initializeApollo();

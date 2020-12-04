@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { motion, MotionConfig } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import PROJECTS_QUERY from '../apollo/queries/project/projects';
@@ -48,6 +48,10 @@ export default function Portfolio({ projects }) {
     </>
   );
 }
+
+Portfolio.propTypes = {
+  projects: PropTypes.array,
+};
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo();
