@@ -99,17 +99,14 @@ export default function Project({ projects }) {
           {new Intl.DateTimeFormat('fr').format(new Date(project.published_at))}
         </p>
       </section>
-      {project.Frontmatter && (
-        <Frontmatter
-          frontmatterBackgroundImage={frontmatterBackgroundImage && frontmatterBackgroundImage.url}
-          sectionNumber={sectionNumber}
-          sectionTitle={sectionTitle}
-          sectionDescription={sectionDescription}
-          altText={frontmatterBackgroundImage && frontmatterBackgroundImage.alternativeText}
-          Techstack={Techstack}
-        />
-      )}
-
+      <Frontmatter
+        frontmatterBackgroundImage={frontmatterBackgroundImage && frontmatterBackgroundImage.url}
+        sectionNumber={sectionNumber}
+        sectionTitle={sectionTitle}
+        sectionDescription={sectionDescription}
+        altText={frontmatterBackgroundImage && frontmatterBackgroundImage.alternativeText}
+        Techstack={Techstack}
+      />
       {content}
     </>
   );
