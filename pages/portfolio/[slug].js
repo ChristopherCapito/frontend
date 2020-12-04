@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
-
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient';
 
 const ImageAndText = dynamic(() => import('../../components/content-blocks/imageAndText'));
@@ -13,6 +13,16 @@ const Frontmatter = dynamic(() => import('../../components/content-blocks/frontm
 const FullWidthMedia = dynamic(() => import('../../components/content-blocks/fullwidthMedia'));
 
 export default function Project({ projects }) {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
   const project = projects[0];
 
   let content;
@@ -90,7 +100,7 @@ export default function Project({ projects }) {
   };
 
   return (
-    <>
+    <motion.div variants={container} initial="hidden" animate="show">
       <NextSeo {...SEO} />
       <section name="projectHeading" className="text-light container mx-auto px-8 md:px-12  pb-6">
         <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
@@ -110,7 +120,7 @@ export default function Project({ projects }) {
       )}
 
       {content}
-    </>
+    </motion.div>
   );
 }
 
