@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient';
@@ -14,16 +13,6 @@ const FullWidthMedia = dynamic(() => import('../../components/content-blocks/ful
 
 export default function Project({ projects }) {
   const project = projects[0];
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
 
   let content;
   if (project.Content) {
@@ -100,7 +89,7 @@ export default function Project({ projects }) {
   };
 
   return (
-    <motion.div variants={container} initial="hidden" animate="show" className="container mx-auto px-8">
+    <>
       <NextSeo {...SEO} />
       <section name="projectHeading" className="text-light container mx-auto px-8 md:px-12  pb-6">
         <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
@@ -120,7 +109,7 @@ export default function Project({ projects }) {
       )}
 
       {content}
-    </motion.div>
+    </>
   );
 }
 
@@ -152,6 +141,6 @@ export async function getStaticProps(context) {
 
   return addApolloState(apolloClient, {
     props: { projects },
-    revalidate: false,
+    revalidate: 1,
   });
 }
