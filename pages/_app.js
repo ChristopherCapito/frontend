@@ -24,6 +24,7 @@ export default function App({ Component, pageProps, router }) {
       <ApolloProvider client={apolloClient}>
         <Nav />
         <AnimatePresence
+          exitBeforeEnter
           onExitComplete={() => {
             window.scroll({
               top: 0,
