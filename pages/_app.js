@@ -41,8 +41,8 @@ export default function App({ Component, pageProps, router }) {
             transition={{ ease: 'anticipate', duration: 0.6 }}
           >
             <Component {...pageProps} />
+            <Footer />
           </motion.div>
-          <Footer />
         </AnimatePresence>
       </ApolloProvider>
     </>
