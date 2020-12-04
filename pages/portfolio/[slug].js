@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
 import { addApolloState, initializeApollo } from '../../apollo/apolloClient';
@@ -88,6 +89,18 @@ export default function Project({ projects }) {
     },
   };
 
+  // #region Animation
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 2,
+      },
+    },
+  };
+  // #endregion Animation
+
   return (
     <>
       <NextSeo {...SEO} />
@@ -107,8 +120,9 @@ export default function Project({ projects }) {
           Techstack={Techstack}
         />
       )}
-
-      {content}
+      <motion.div variants={container} initial="hidden" animate="show" exit="hidden">
+        {content}
+      </motion.div>
     </>
   );
 }
