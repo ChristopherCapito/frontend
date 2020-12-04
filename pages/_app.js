@@ -23,7 +23,7 @@ export default function App({ Component, pageProps, router }) {
       <DefaultSeo {...SEO} />
       <ApolloProvider client={apolloClient}>
         <Nav />
-        <AnimatePresence
+        {/* <AnimatePresence
           exitBeforeEnter
           onExitComplete={() => {
             window.scroll({
@@ -39,10 +39,10 @@ export default function App({ Component, pageProps, router }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ ease: 'anticipate', duration: 0.6 }}
-          >
-            <Component {...pageProps} />
-          </motion.div>
-        </AnimatePresence>
+          > */}
+        <Component {...pageProps} />
+        {/* </motion.div>
+        </AnimatePresence> */}
         <Footer />
       </ApolloProvider>
     </>
