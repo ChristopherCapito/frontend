@@ -90,8 +90,6 @@ export default function Project({ projects }) {
     },
   };
 
-  console.log(project);
-
   return (
     <>
       <NextSeo {...SEO} />

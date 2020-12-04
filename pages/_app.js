@@ -35,6 +35,7 @@ export default function App({ Component, pageProps, router }) {
         >
           <motion.div
             key={router.route}
+            inital={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ ease: 'anticipate', duration: 0.6 }}
