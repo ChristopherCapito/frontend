@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
-imoprt Frontmatter from "../../components/content-blocks/frontmatter.js"
 import dynamic from 'next/dynamic';
+import Frontmatter from '../../components/content-blocks/frontmatter.js';
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
 
@@ -11,7 +11,7 @@ export default function Project({ projects }) {
   const ImageAndText = dynamic(() => import('../../components/content-blocks/imageAndText'));
   const DoubleText = dynamic(() => import('../../components/content-blocks/doubleText'));
   const DoubleMedia = dynamic(() => import('../../components/content-blocks/doubleMedia'));
-  //const Frontmatter = dynamic(() => import('../../components/content-blocks/frontmatter'));
+  // const Frontmatter = dynamic(() => import('../../components/content-blocks/frontmatter'));
   const FullWidthMedia = dynamic(() => import('../../components/content-blocks/fullwidthMedia'));
 
   const project = projects[0];
