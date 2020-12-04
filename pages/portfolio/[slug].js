@@ -89,18 +89,6 @@ export default function Project({ projects }) {
     },
   };
 
-  // #region Animation
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 2,
-      },
-    },
-  };
-  // #endregion Animation
-
   return (
     <>
       <NextSeo {...SEO} />
@@ -120,16 +108,10 @@ export default function Project({ projects }) {
           Techstack={Techstack}
         />
       )}
-      <motion.div variants={container} initial="hidden" animate="show" exit="hidden">
-        {content}
-      </motion.div>
+      {content}
     </>
   );
 }
-
-Project.propTypes = {
-  projects: PropTypes.array,
-};
 
 export async function getStaticPaths() {
   const apolloClient = initializeApollo();
