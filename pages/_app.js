@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import PropTypes from 'prop-types';
 import { DefaultSeo } from 'next-seo';
-import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
@@ -18,19 +17,8 @@ export default function App({ Component, pageProps, router }) {
     <>
       <DefaultSeo {...SEO} />
       <Nav />
-      <AnimatePresence
-        exitBeforeEnter
-        onExitComplete={() => {
-          window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-          });
-        }}
-      >
-        <Component {...pageProps} />
-        <Footer />
-      </AnimatePresence>
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

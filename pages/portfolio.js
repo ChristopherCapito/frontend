@@ -1,21 +1,10 @@
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import { request } from 'graphql-request';
 import PROJECTS_QUERY from '../apollo/queries/project/projects';
 
 export default function Portfolio({ projects }) {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.6,
-      },
-    },
-  };
-
   const Card = dynamic(() => import('../components/card'));
 
   const SEO = {
@@ -32,18 +21,10 @@ export default function Portfolio({ projects }) {
       <NextSeo {...SEO} />
       <div className="text-light container mx-auto px-8">
         <h1 className="md:text-xl lg:text-2xl text-icon font-medium mb-12">Take a look at these.</h1>
-
-        <motion.div variants={container} initial="hidden" animate="show" transition={{ delayChildren: 0.5 }}>
-          {projects.map((project) => {
-            const left = project.id % 2 === 0;
-
-            return (
-              <motion.div key={`project__${project.id}`}>
-                <Card project={project} left={left} />
-              </motion.div>
-            );
-          })}
-        </motion.div>
+        {projects.map((project) => {
+          const left = project.id % 2 === 0;
+          return <Card project={project} left={left} />;
+        })}
       </div>
     </>
   );
