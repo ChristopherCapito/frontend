@@ -9,6 +9,7 @@ module.exports = {
       ...theme('colors'),
       dark: '#070707',
       light: '#F5F5F5',
+      accent: '#D40000',
     }),
     textColor: (theme) => ({
       ...theme('colors'),
@@ -45,5 +46,5 @@ module.exports = {
     extend: {},
   },
   variants: {},
-  plugins: [require('@tailwindcss/forms')],
+  // plugins: [require('@tailwindcss/forms')],
 };

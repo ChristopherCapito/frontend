@@ -35,9 +35,17 @@ const Index = () => {
       <NextSeo {...SEO} />
       <motion.div variants={container} initial="hidden" animate="show" className="container mx-auto px-8">
         <motion.p variants={listItem} className="text-light text-lg font-medium lg:text-2xl lg:leading-tight">
-          I'm a freelance web developer. Sometimes alone, sometimes, for larger projects, with my team over at{' '}
+          I'm a web developer. Have a look at my{' '}
+          <Link href="/portfolio">
+            <a className="text-red-300">projects</a>
+          </Link>{' '}
+          and{' '}
+          <Link href="/contact">
+            <a className="text-red-300">contact me</a>
+          </Link>
+          . If you need manpower, talk to my team over at{' '}
           <span>
-            <a href="http://das-andere.studio" className="shadow">
+            <a href="http://das-andere.studio" className="text-red-300">
               Das Andere Studio
             </a>
           </span>
