@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+import { request } from 'graphql-request'; // in your page
 import PROJECT_QUERY from '../../apollo/queries/project/project';
 import PROJECTS_QUERY from '../../apollo/queries/project/projects';
-import { addApolloState, initializeApollo } from '../../apollo/apolloClient';
 
 const ImageAndText = dynamic(() => import('../../components/content-blocks/imageAndText'));
 const DoubleText = dynamic(() => import('../../components/content-blocks/doubleText'));
@@ -109,29 +108,27 @@ export default function Project({ projects }) {
 }
 
 export async function getStaticPaths() {
-  const apolloClient = initializeApollo();
-  const {
-    data: { projects },
-  } = await apolloClient.query({
-    query: PROJECTS_QUERY,
-  });
+  const res = await request(`${process.env.API_URL}/graphql`, PROJECTS_QUERY);
+  const { projects } = res;
+
   const paths = projects.map((project) => ({
     params: { slug: project.slug },
   }));
+
   return { paths, fallback: false };
 }
 
 export async function getStaticProps(context) {
-  const apolloClient = initializeApollo();
-  const {
-    data: { projects },
-  } = await apolloClient.query({
-    query: PROJECT_QUERY,
-    variables: { slug: context.params.slug },
-  });
+  // get the variables for the query via   {slug:context.params.slug}
+  // query for PROJECT_QUERY
+  // 'request' from ‘graphql-request’ library
 
-  return addApolloState(apolloClient, {
-    props: { projects },
-    revalidate: 1,
-  });
+  const res = await request(`${process.env.API_URL}/graphql`, PROJECT_QUERY, { slug: context.params.slug });
+  const { projects } = res;
+
+  return {
+    props: {
+      projects, // Pass Data in props
+    },
+  };
 }

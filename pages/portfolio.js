@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
+import { request } from 'graphql-request';
 import PROJECTS_QUERY from '../apollo/queries/project/projects';
-import { addApolloState, initializeApollo } from '../apollo/apolloClient';
 
 export default function Portfolio({ projects }) {
   const container = {
@@ -54,15 +54,13 @@ Portfolio.propTypes = {
 };
 
 export async function getStaticProps() {
-  const apolloClient = initializeApollo();
-  const {
-    data: { projects },
-  } = await apolloClient.query({
-    query: PROJECTS_QUERY,
-  });
+  // 'request' from ‘graphql-request’ library
+  const res = await request(`${process.env.API_URL}/graphql`, PROJECTS_QUERY);
+  const { projects } = res;
 
-  return addApolloState(apolloClient, {
-    props: { projects },
-    revalidate: 1,
-  });
+  return {
+    props: {
+      projects, // Pass Data in props
+    },
+  };
 }
