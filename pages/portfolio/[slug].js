@@ -15,51 +15,6 @@ const FullWidthMedia = dynamic(() => import('../../components/content-blocks/ful
 export default function Project({ projects }) {
   const project = projects[0];
 
-  let content;
-  if (project.Content) {
-    content = project.Content.map((e, i) => {
-      switch (e.__typename) {
-        case 'ComponentSubComponentsFullWidthMedia':
-          if (e.media) return <FullWidthMedia key={i} media={e.media.url} altText={e.media.alternativeText} />;
-          return;
-        case 'ComponentSubComponentsDoubleMedia':
-          return (
-            <DoubleMedia
-              key={i}
-              mediaLeft={e.mediaLeft && e.mediaLeft.url}
-              mediaRight={e.mediaRight && e.mediaRight.url}
-              altTextLeft={e.mediaLeft && e.mediaLeft.alternativeText}
-              altTextRight={e.mediaRight && e.mediaRight.alternativeText}
-            />
-          );
-        case 'ComponentSubComponentsDoubleText':
-          return (
-            <DoubleText
-              key={i}
-              sectionNumber={e.sectionNumber}
-              sectionTitle={e.sectionTitle}
-              textLeft={e.textLeft}
-              textRight={e.textRight}
-            />
-          );
-        case 'ComponentSubComponentsImageAndText':
-          return (
-            <ImageAndText
-              key={i}
-              media={e.media && e.media.url}
-              alt={e.media && e.media.alternativeText}
-              sectionNumber={e.sectionNumber}
-              sectionTitle={e.sectionTitle}
-              text={e.text}
-              textLeft={e.textOnLeft}
-            />
-          );
-        default:
-          return null;
-      }
-    });
-  }
-
   const {
     sectionTitle,
     sectionNumber,
@@ -108,7 +63,47 @@ export default function Project({ projects }) {
           Techstack={Techstack}
         />
       )}
-      {content}
+      {project.Content.map((e, i) => {
+        switch (e.__typename) {
+          case 'ComponentSubComponentsFullWidthMedia':
+            if (e.media) return <FullWidthMedia key={i} media={e.media.url} altText={e.media.alternativeText} />;
+            return;
+          case 'ComponentSubComponentsDoubleMedia':
+            return (
+              <DoubleMedia
+                key={i}
+                mediaLeft={e.mediaLeft && e.mediaLeft.url}
+                mediaRight={e.mediaRight && e.mediaRight.url}
+                altTextLeft={e.mediaLeft && e.mediaLeft.alternativeText}
+                altTextRight={e.mediaRight && e.mediaRight.alternativeText}
+              />
+            );
+          case 'ComponentSubComponentsDoubleText':
+            return (
+              <DoubleText
+                key={i}
+                sectionNumber={e.sectionNumber}
+                sectionTitle={e.sectionTitle}
+                textLeft={e.textLeft}
+                textRight={e.textRight}
+              />
+            );
+          case 'ComponentSubComponentsImageAndText':
+            return (
+              <ImageAndText
+                key={i}
+                media={e.media && e.media.url}
+                alt={e.media && e.media.alternativeText}
+                sectionNumber={e.sectionNumber}
+                sectionTitle={e.sectionTitle}
+                text={e.text}
+                textLeft={e.textOnLeft}
+              />
+            );
+          default:
+            return null;
+        }
+      })}
     </>
   );
 }
