@@ -35,8 +35,7 @@ const Index = () => {
       <NextSeo {...SEO} />
       <motion.div variants={container} initial="hidden" animate="show" className="container mx-auto px-8">
         <motion.p variants={listItem} className="text-light text-lg font-medium lg:text-2xl lg:leading-tight">
-          I'm a freelance web developer doing concepting and developing. Sometimes alone, sometimes, for larger
-          projects, with my team over at{' '}
+          I'm a freelance web developer. Sometimes alone, sometimes, for larger projects, with my team over at{' '}
           <span>
             <a href="http://das-andere.studio" className="shadow">
               Das Andere Studio
