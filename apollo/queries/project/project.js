@@ -1,6 +1,4 @@
-import gql from 'graphql-tag';
-
-const PROJECT_QUERY = gql`
+const PROJECT_QUERY = `
   query Projects($slug: String!) {
     projects(where: { slug: $slug }) {
       id

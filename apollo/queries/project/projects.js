@@ -1,7 +1,5 @@
-import gql from 'graphql-tag';
-
-const PROJECTS_QUERY = gql`
-  query Projects {
+const PROJECTS_QUERY = `
+  {
     projects {
       id
       title
