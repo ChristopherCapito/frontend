@@ -4,7 +4,7 @@ import { FormatSectionNumber, getUrl } from '../utils/formatFunctions';
 
 const Card = ({ project: { slug, image, number, excerpt, title }, left }) => (
   <div className="mb-16 lg:mb-48">
-    <Link scroll={false} href="/projects/[slug]" as={`/projects/${slug}`}>
+    <Link href="/projects/[slug]" as={`/projects/${slug}`}>
       <div className="md:grid md:grid-cols-2 grid-flow-row gap-16">
         <img
           src={image && getUrl(image.url)}

@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import PropTypes from 'prop-types';
 import { DefaultSeo } from 'next-seo';
 import { useEffect } from 'react';
+import { Flipper, Flipped } from 'react-flip-toolkit';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 import SEO from '../next-seo.config';
@@ -17,7 +18,13 @@ export default function App({ Component, pageProps, router }) {
     <>
       <DefaultSeo {...SEO} />
       <Nav />
-      <Component {...pageProps} />
+      <Flipper flipKey={router.asPath}>
+        <Flipped flipId="page">
+          <div>
+            <Component {...pageProps} />
+          </div>
+        </Flipped>
+      </Flipper>
       <Footer />
     </>
   );

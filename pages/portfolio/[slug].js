@@ -13,7 +13,6 @@ const FullWidthMedia = dynamic(() => import('../../components/content-blocks/ful
 
 export default function Project({ projects }) {
   const project = projects[0];
-
   const {
     sectionTitle,
     sectionNumber,
