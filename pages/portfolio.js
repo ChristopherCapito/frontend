@@ -17,16 +17,16 @@ export default function Portfolio({ projects }) {
   };
 
   return (
-    <>
+    <div>
       <NextSeo {...SEO} />
       <div className="text-light container mx-auto px-8">
         <h1 className="md:text-xl lg:text-2xl text-icon font-medium mb-12">Take a look at these.</h1>
         {projects.map((project) => {
           const left = project.id % 2 === 0;
-          return <Card project={project} left={left} />;
+          return <Card project={project} key={project.id} left={left} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 
