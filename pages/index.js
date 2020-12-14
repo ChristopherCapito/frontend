@@ -1,12 +1,10 @@
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
+import Links from '../components/links';
 
 const Index = () => {
   const container = {
-    hidden: { opacity: 0 },
     show: {
-      opacity: 1,
       transition: {
         staggerChildren: 0.2,
       },
@@ -16,7 +14,7 @@ const Index = () => {
   const listItem = {
     hidden: { x: '-100vw' },
     show: { x: 0, transition: { ease: 'anticipate', duration: 0.6 } },
-    exit: { x: '-100vw' },
+    exit: { x: '-100vw', transition: { ease: 'anticipate', duration: 0.6 } },
   };
 
   const SEO = {
@@ -33,43 +31,34 @@ const Index = () => {
   return (
     <>
       <NextSeo {...SEO} />
-      <motion.div variants={container} initial="hidden" animate="show" className="container mx-auto px-8">
+      <motion.div variants={container} initial="hidden" animate="show" exit="exit" className="container mx-auto px-8">
         <motion.p variants={listItem} className="text-light text-lg font-medium lg:text-2xl lg:leading-tight">
-          I'm a web developer. Have a look at my{' '}
-          <Link href="/portfolio">
-            <a className="text-red-300">projects</a>
-          </Link>{' '}
-          and{' '}
-          <Link href="/contact">
-            <a className="text-red-300">contact me</a>
-          </Link>
-          . If you need manpower, talk to my team over at{' '}
+          I'm a web developer. Have a look at my <Links nextLink href="/portfolio" colored text="projects" /> and{' '}
+          <Links nextLink colored href="/contact" text="contact" /> me. If you need manpower, talk to my team over at{' '}
           <span>
-            <a href="http://das-andere.studio" className="text-red-300">
-              Das Andere Studio
-            </a>
+            <Links colored href="http://das-andere.studio" text="Das Andere Studio" />
           </span>
           .
         </motion.p>
         <motion.div variants={listItem} className="grid grid-cols-1 lg:grid-cols-3 text-light pt-8 lg:pt-16">
-          <motion.div variants={container} initial="hidden" animate="show">
-            <motion.div variants={listItem}>
-              <div className="pb-10">
-                <p className="lg:text-md font-medium ">Why don't you see my</p>
-                <Link scroll={false} href="/portfolio">
-                  <a className="text-md lg:text-xl leading-none font-medium">portfolio</a>
-                </Link>
-              </div>
-            </motion.div>
-            <motion.div variants={listItem}>
-              <div className="pb-10">
-                <p className="lg:text-md font-medium">Don't be shy, go and</p>
-                <Link scroll={false} href="/contact">
-                  <a className="text-md lg:text-xl leading-none font-medium">say hi</a>
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
+          <div className="pb-10">
+            <p className="lg:text-md font-medium ">Why don't you see my</p>
+            <Links
+              href="/portfolio"
+              nextLink
+              text="portfolio"
+              additionalClasses="text-md lg:text-xl leading-none font-medium"
+            />
+          </div>
+          <div className="pb-10">
+            <p className="lg:text-md font-medium">Don't be shy, go and</p>
+            <Links
+              nextLink
+              href="/contact"
+              text="contact me"
+              additionalClasses="text-md lg:text-xl leading-none font-medium"
+            />
+          </div>
         </motion.div>
       </motion.div>
     </>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import {m as motion } from 'framer-motion';
 import { FormatSectionNumber, getUrl } from '../utils/formatFunctions';
 
 const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
@@ -17,6 +17,12 @@ const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
   const listItem = {
     hidden: { x: left ? '-100vw' : '100vw' },
     show: { x: 0, transition: { ease: 'anticipate', duration: 0.6 } },
+    exit: {
+      x: left ? '-100vw' : '100vw',
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   return (
@@ -24,15 +30,16 @@ const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
       layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ x: left ? '-100vw' : '100vw' }}
+      exit={{ opacity: 0 }}
       className="mb-16 lg:mb-48"
     >
-      <Link scroll={false} href="/portfolio/[slug]" as={`/portfolio/${slug}`}>
+      <Link href="/portfolio/[slug]" as={`/portfolio/${slug}`}>
         <motion.div
           className="md:grid md:grid-cols-2 grid-flow-row gap-16"
           variants={container}
           initial="hidden"
           animate="show"
+          exit="exit"
         >
           <motion.img
             src={image && getUrl(image.url)}

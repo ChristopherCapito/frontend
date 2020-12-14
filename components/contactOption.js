@@ -5,7 +5,7 @@ import instagram from '@iconify/icons-simple-icons/instagram';
 import mail from '@iconify/icons-mdi/gmail';
 import github from '@iconify/icons-simple-icons/github';
 import Icon from '@iconify/react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 const ContactOption = ({ icon, socialMediaLink }) => {
   const icons = {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import ContactForm from '../components/contactForm';
 import ContactOption from '../components/contactOption';
@@ -61,7 +61,7 @@ const Contact = () => {
               animate="show"
               exit="hidden"
             >
-              <motion.div variants={listItem}>
+              <motion.div variants={listItem} className="text-light">
                 <ContactOption
                   icon="linkedin"
                   socialMediaLink="https://de.linkedin.com/in/christopher-capito-41863b145"

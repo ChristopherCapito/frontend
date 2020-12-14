@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import { request } from 'graphql-request';
@@ -11,6 +11,14 @@ export default function Portfolio({ projects }) {
     show: {
       opacity: 1,
       transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.6,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        delayChildren: 0.2,
         staggerChildren: 0.6,
       },
     },
@@ -31,9 +39,9 @@ export default function Portfolio({ projects }) {
     <>
       <NextSeo {...SEO} />
       <div className="text-light container mx-auto px-8">
-        <h1 className="md:text-xl lg:text-2xl text-icon font-medium mb-12">Take a look at these.</h1>
+        <motion.div variants={container} initial="hidden" animate="show" exit="exit">
+          <h1 className="md:text-xl lg:text-2xl text-icon font-medium mb-12">Take a look at these.</h1>
 
-        <motion.div variants={container} initial="hidden" animate="show" transition={{ delayChildren: 0.5 }}>
           {projects.map((project) => {
             const left = project.id % 2 === 0;
 

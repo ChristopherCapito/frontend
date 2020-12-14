@@ -1,8 +1,9 @@
 import '../styles/globals.css';
 import PropTypes from 'prop-types';
 import { DefaultSeo } from 'next-seo';
-import { AnimatePresence } from 'framer-motion';
+
 import { useEffect } from 'react';
+import { m as motion, AnimatePresence, MotionConfig, AnimationFeature, ExitFeature } from 'framer-motion';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 import SEO from '../next-seo.config';
@@ -14,23 +15,46 @@ export default function App({ Component, pageProps, router }) {
     initGA(process.env.UA);
   }, []);
 
+  const variants = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        when: 'beforeChildren',
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
   return (
     <>
       <DefaultSeo {...SEO} />
       <Nav />
-      <AnimatePresence
-        exitBeforeEnter
-        onExitComplete={() => {
-          window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-          });
-        }}
-      >
-        <Component {...pageProps} />
-        <Footer />
-      </AnimatePresence>
+      <MotionConfig features={[ExitFeature, AnimationFeature]}>
+        <AnimatePresence
+          exitBeforeEnter
+          onExitComplete={() => {
+            window.scroll({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+          }}
+        >
+          <motion.div key={router.asPath} className="overflow-hidden">
+            <Component {...pageProps} />
+            <Footer />
+          </motion.div>
+        </AnimatePresence>
+      </MotionConfig>
     </>
   );
 }
