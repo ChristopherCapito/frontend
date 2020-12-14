@@ -8,27 +8,6 @@ import SEO from '../next-seo.config';
 // import Cookie from '../components/cookie';
 
 export default function App({ Component, pageProps, router }) {
-  const variants = {
-    initial: {
-      opacity: 0,
-    },
-    enter: {
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-        when: 'beforeChildren',
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
-  console.log(process.env.GA);
-
   return (
     <>
       <DefaultSeo {...SEO} />

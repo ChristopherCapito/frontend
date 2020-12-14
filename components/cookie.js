@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CookieConsent from 'react-cookie-consent';
-import { initGA } from '../utils/analytics';
 
 const cookie = () => (
   <CookieConsent
@@ -16,8 +15,6 @@ const cookie = () => (
     enableDeclineButton
     onAccept={() => {
       // Similar to componentDidMount and componentDidUpdate:
-      initGA(process.env.UA);
-      console.log('Google Cookie set!');
     }}
   >
     <span className="font-bold">Hi! May I use cookies to understand how you are using the site?</span>
