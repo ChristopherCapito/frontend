@@ -25,7 +25,7 @@ const ContactForm = ({ formVisible }) => {
           <p className="py-8 text-xl md:text-2xl lg:text-3xl font-bold">Solving your problem starts here.</p>
         </motion.div>
 
-        <form name="contact" method="POST" action="/success" data-netlify="true">
+        <form name="contact" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
           <motion.div variants={listItem}>
             <label className="p-0 m-0" htmlFor="name">
@@ -99,29 +99,14 @@ const ContactForm = ({ formVisible }) => {
             <button className="bg-light text-black px-8" type="submit">
               Send
             </button>
+            <p className="hidden">
+              <label htmlFor="bot-field">
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </p>
           </motion.div>
         </form>
       </motion.div>
-      <form className="hidden" name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true">
-        <p className="hidden">
-          <label htmlFor="bot-field">
-            Don’t fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
-        <p>
-          <label htmlFor="email">
-            Email: <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <label htmlFor="message">
-            Message: <textarea name="message" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
     </div>
   );
 };
