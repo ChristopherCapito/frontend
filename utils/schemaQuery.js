@@ -1,7 +1,7 @@
 const fetch = require('cross-fetch');
 const fs = require('fs');
 
-fetch(`${process.env.API_URL || 'http://localhost:1337'}/graphql`, {
+fetch(`${process.env.API_URL}/graphql`, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({

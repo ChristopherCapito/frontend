@@ -26,8 +26,7 @@
     "react": "17.0.1",
     "react-autosize-textarea": "^7.1.0",
     "react-cookie-consent": "^6.1.0",
-    "react-dom": "17.0.1",
-    "react-ga": "^3.3.0"
+    "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
