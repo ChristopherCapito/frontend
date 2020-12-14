@@ -1,3 +1,7 @@
 [build]
   command = "yarn build"
   publish = "out"
+
+[[redirects]]
+  from = "/admin"
+  to = "https://cc-portfolio-strapi-backend.herokuapp.com/admin/"
