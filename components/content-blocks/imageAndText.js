@@ -7,7 +7,7 @@ const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, textL
 
   return (
     (media || text) && (
-      <section className="bg-light text-black">
+      <section className="bg-light text-black container mx-auto">
         <div className="grid lg:grid-cols-2">
           <img className="w-full cover content-img block-img object-cover" src={getUrl(media)} alt={altText} />
           <div className={direction}>

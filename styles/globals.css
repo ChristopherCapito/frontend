@@ -49,14 +49,6 @@ a {
 }
 
 @media (min-width: 1440px) {
-  .container {
-    max-width: 1640px;
-  }
-
-  .xlarge {
-    margin-bottom: 200px;
-  }
-
   .content-img {
     min-height: 100%;
   }

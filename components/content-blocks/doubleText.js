@@ -3,7 +3,7 @@ import { FormatSectionNumber } from '../../utils/formatFunctions';
 
 const DoubleText = ({ sectionNumber, sectionTitle, textLeft, textRight }) =>
   (textLeft || textRight) && (
-    <section className="bg-light text-black py-8 px-8 md:py-24 md:px-24">
+    <section className="container mx-auto bg-light text-black py-8 px-8 md:py-24 md:px-24">
       {sectionNumber && (
         <p className="text-accent text-lg md:text-xl font-medium leading-none ">{FormatSectionNumber(sectionNumber)}</p>
       )}
