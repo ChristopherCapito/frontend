@@ -43,21 +43,25 @@ const Index = () => {
         <motion.div variants={listItem} className="grid grid-cols-1 lg:grid-cols-3 text-light pt-8 lg:pt-16">
           <div className="pb-10">
             <p className="lg:text-md font-medium ">Why don't you see my</p>
-            <Links
-              href="/portfolio"
-              nextLink
-              text="portfolio"
-              additionalClasses="text-md lg:text-xl leading-none font-medium"
-            />
+            <h2>
+              <Links
+                href="/portfolio"
+                nextLink
+                text="portfolio"
+                additionalClasses="text-md lg:text-xl leading-none font-medium"
+              />
+            </h2>
           </div>
           <div className="pb-10">
             <p className="lg:text-md font-medium">Don't be shy, go and</p>
-            <Links
-              nextLink
-              href="/contact"
-              text="contact me"
-              additionalClasses="text-md lg:text-xl leading-none font-medium"
-            />
+            <h2>
+              <Links
+                nextLink
+                href="/contact"
+                text="contact me"
+                additionalClasses="text-md lg:text-xl leading-none font-medium"
+              />
+            </h2>
           </div>
         </motion.div>
       </motion.div>

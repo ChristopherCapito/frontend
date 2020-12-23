@@ -19,7 +19,7 @@ const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, textL
                   {FormatSectionNumber(sectionNumber)}
                 </p>
               )}
-              {sectionTitle && <p className="text-lg mb-8 md:text-xl font-medium leading-none">{sectionTitle}</p>}
+              {sectionTitle && <h2 className="text-lg mb-8 md:text-xl font-medium leading-none">{sectionTitle}</h2>}
               <p className="text-base md:text-lg md:font-light md:leading-tight">{text}</p>
             </div>
           </div>

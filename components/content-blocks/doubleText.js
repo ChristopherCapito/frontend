@@ -7,7 +7,7 @@ const DoubleText = ({ sectionNumber, sectionTitle, textLeft, textRight }) =>
       {sectionNumber && (
         <p className="text-accent text-lg md:text-xl font-medium leading-none ">{FormatSectionNumber(sectionNumber)}</p>
       )}
-      {sectionTitle && <p className="text-lg md:text-xl font-medium leading-none ">{sectionTitle}</p>}{' '}
+      {sectionTitle && <h2 className="text-lg md:text-xl font-medium leading-none ">{sectionTitle}</h2>}{' '}
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-32 mt-6 text-base font-regular md:text-lg md:font-light md:leading-tight ">
         <div className="flex justify-center ">
           <p>{textLeft}</p>
