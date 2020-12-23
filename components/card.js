@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import {m as motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { FormatSectionNumber, getUrl } from '../utils/formatFunctions';
 
 const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
@@ -42,7 +42,7 @@ const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
           exit="exit"
         >
           <motion.img
-            src={image && getUrl(image.url)}
+            src={image && getUrl(image.url, 'large')}
             alt={image.alternativeText}
             className={`${left && 'order-2'} mb-8 md:mb-0 object-cover w-full sm:h-thumb md:h-midThumb lg:h-largeThumb`}
             variants={listItem}
