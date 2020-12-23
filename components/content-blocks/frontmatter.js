@@ -49,7 +49,7 @@ function Frontmatter({
 
   return (
     <section title={altText} style={frontMatterStyle} name="projectFrontmatter" className="text-light">
-      <div className=" container mx-auto p-8 md:p-12 ">
+      <div className=" container mx-auto p-8 md:py-12 md:px-24  ">
         {sectionNumber ? (
           <p className="text-accent text-lg md:text-xl font-medium leading-none">
             {FormatSectionNumber(sectionNumber)}
