@@ -46,7 +46,7 @@ export default function Project({ projects }) {
   return (
     <>
       <NextSeo {...SEO} />
-      <section name="projectHeading" className="text-light container mx-auto px-8 md:px-12  pb-6">
+      <section name="projectHeading" className="text-light container mx-auto px-8 md:px-24  pb-6">
         <h1 className="text-icon md:text-3xl font-medium leading-none">{project.title}</h1>
         <p className="text-accent text-tiny md:text-xl font-bold">
           {new Intl.DateTimeFormat('fr').format(new Date(project.published_at))}
