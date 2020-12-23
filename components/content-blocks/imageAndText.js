@@ -6,7 +6,6 @@ const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, textL
   let direction = 'flex justify-center items-center';
   if (textLeft === true) direction = 'flex justify-center items-center lg:row-start-1';
 
-  console.log(media);
   return (
     (media || text) && (
       <section className="bg-light text-black container mx-auto">
