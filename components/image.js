@@ -1,23 +1,19 @@
 import { getUrl } from '../utils/formatFunctions';
 
-const Image = ({ classes, baseURL, alt }) => {
-  console.log(baseURL);
-  const url = getUrl(baseURL);
-  return (
-    <picture>
-      <img
-        className={classes}
-        src={url}
-        srcSet={`
-               small_${url} 500w, 
-               medium_${url} 750w,
-               large_${url} 1000w,
+const Image = ({ classes, baseURL, alt }) => (
+  <picture>
+    <img
+      className={classes}
+      src={getUrl(baseURL)}
+      srcSet={`
+               ${getUrl(baseURL, 'small')} 500w, 
+               ${getUrl(baseURL, 'medium')} 750w,
+               ${getUrl(baseURL, 'large')} 1000w,
                `}
-        alt={alt}
-      />
-    </picture>
-  );
-};
+      alt={alt}
+    />
+  </picture>
+);
 
 // UNCOMMENT THIS ONCE STRAPI ALLOWS CUSTOM IMAGE SIZES OR CLOUDINARY DERIVATION WORKS
 // const Image = ({ classes, baseURL, alt, half }) => {
