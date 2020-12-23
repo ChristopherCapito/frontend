@@ -1,6 +1,7 @@
 import { getUrl } from '../utils/formatFunctions';
 
 const Image = ({ classes, baseURL, alt }) => {
+  console.log(baseURL);
   const url = getUrl(baseURL);
   return (
     <picture>
