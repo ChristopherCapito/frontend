@@ -9,6 +9,7 @@ const Image = ({ classes, baseURL, alt }) => (
                ${getUrl(baseURL, 'small')} 500w, 
                ${getUrl(baseURL, 'medium')} 750w,
                ${getUrl(baseURL, 'large')} 1000w,
+               ${getUrl(baseURL)} 1500w
                `}
       alt={alt}
     />
