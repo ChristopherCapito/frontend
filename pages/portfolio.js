@@ -44,7 +44,7 @@ export default function Portfolio({ projects }) {
 
           {projects.map((project, i) => {
             project.number = i + 1;
-            const left = project.id % 2 === 0;
+            const left = project.number % 2 === 0;
 
             return (
               <motion.div key={`project__${project.id}`}>
