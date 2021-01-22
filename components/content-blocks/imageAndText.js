@@ -11,7 +11,7 @@ const ImageAndText = ({ media, sectionNumber, sectionTitle, altText, text, textL
       <section className="bg-light text-black container mx-auto">
         <div className="grid lg:grid-cols-2">
           {/* <img className="w-full cover content-img block-img object-cover" src={getUrl(media)} alt={altText} /> */}
-          <Image classes="w-full cover content-img block-img object-contain" baseURL={media} alt={altText} />
+          <Image classes="w-full cover px-8 py-8 md:py-24 md:px-24 object-contain" baseURL={media} alt={altText} />
           <div className={direction}>
             <div className="px-8 py-8 md:py-24 md:px-24">
               {sectionNumber && (
