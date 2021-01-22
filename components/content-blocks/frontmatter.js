@@ -78,7 +78,7 @@ function Frontmatter({
             )}
             {sectionDescription ? (
               <>
-                <p className="text-base font-base md:text-lg md:font-light leading-tight">{sectionDescription}</p>
+                <p className="text-base font-base md:text-lg leading-tight">{sectionDescription}</p>
 
                 {ghLink?.length > 0 && (
                   <div className="flex items-center mt-4">
