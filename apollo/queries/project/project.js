@@ -9,6 +9,7 @@ const PROJECT_QUERY = `
         sectionNumber
         sectionTitle
         ghLink
+        titleLinkText
         sectionDescription
         frontmatterBackgroundImage {
           url
