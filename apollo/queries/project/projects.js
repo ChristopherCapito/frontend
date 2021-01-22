@@ -5,7 +5,6 @@ const PROJECTS_QUERY = `
       title
       slug
       publish_date
-      number
       excerpt
       image {
         url
