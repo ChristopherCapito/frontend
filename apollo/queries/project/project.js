@@ -8,6 +8,7 @@ const PROJECT_QUERY = `
       Frontmatter {
         sectionNumber
         sectionTitle
+        ghLink
         sectionDescription
         frontmatterBackgroundImage {
           url

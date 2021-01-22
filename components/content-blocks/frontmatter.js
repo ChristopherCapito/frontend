@@ -3,6 +3,7 @@ import javascript from '@iconify/icons-simple-icons/javascript';
 import html5 from '@iconify/icons-simple-icons/html5';
 import css3 from '@iconify/icons-simple-icons/css3';
 import react from '@iconify/icons-simple-icons/react';
+import github from '@iconify/icons-simple-icons/github';
 import node from '@iconify/icons-simple-icons/node-dot-js';
 import next from '@iconify/icons-simple-icons/next-dot-js';
 import strapi from '@iconify/icons-simple-icons/strapi';
@@ -18,6 +19,7 @@ function Frontmatter({
   frontmatterBackgroundImage,
   altText,
   Techstack,
+  ghLink,
 }) {
   // Get background image
 
@@ -52,6 +54,10 @@ function Frontmatter({
     </div>
   ));
 
+  // Check Github Link and fix if needed
+
+  const gitHubLink = ghLink?.includes('https://' || 'http://') ? ghLink : `https://${ghLink}`;
+
   return (
     <section title={altText} style={frontMatterStyle} name="projectFrontmatter" className="text-light">
       <div className=" container mx-auto p-8 md:py-12 md:px-24  ">
@@ -70,7 +76,25 @@ function Frontmatter({
               <div />
             )}
             {sectionDescription ? (
-              <p className="text-base font-base md:text-lg md:font-light leading-tight">{sectionDescription}</p>
+              <>
+                <p className="text-base font-base md:text-lg md:font-light leading-tight">{sectionDescription}</p>
+
+                {ghLink?.length > 0 && (
+                  <div className="flex items-center mt-4">
+                    <p className="text-base font-base md:text-lg md:font-medium leading-tight">Check it out at:</p>
+
+                    <a
+                      className=" p-2 px-4 bg-light ml-4 inline-block text-black font-base md:font-medium text-base md:text-lg"
+                      target="_blank"
+                      rel="noreferrer"
+                      href={`${gitHubLink}`}
+                    >
+                      Github
+                      <Icon className="inline-block ml-4" title={github} icon={github} />
+                    </a>
+                  </div>
+                )}
+              </>
             ) : (
               <div />
             )}
@@ -96,6 +120,7 @@ export default Frontmatter;
 
 Frontmatter.propTypes = {
   sectionNumber: propTypes.number,
+  ghLink: propTypes.string,
   sectionTitle: propTypes.string,
   sectionDescription: propTypes.string,
   frontmatterBackgroundImage: propTypes.string,
