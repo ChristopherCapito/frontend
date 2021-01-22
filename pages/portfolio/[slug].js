@@ -20,6 +20,7 @@ export default function Project({ projects }) {
     sectionDescription,
     Techstack,
     ghLink,
+    titleLinkText,
     frontmatterBackgroundImage,
   } = project.Frontmatter;
 
@@ -56,6 +57,7 @@ export default function Project({ projects }) {
       {project.Frontmatter && (
         <Frontmatter
           ghLink={ghLink}
+          titleLinkText={titleLinkText}
           frontmatterBackgroundImage={frontmatterBackgroundImage && frontmatterBackgroundImage.url}
           sectionNumber={sectionNumber}
           sectionTitle={sectionTitle}
