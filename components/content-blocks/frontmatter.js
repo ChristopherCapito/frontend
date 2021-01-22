@@ -42,7 +42,12 @@ function Frontmatter({
 
   const techstack = Techstack.filter((e) => e.technology !== null).map((e) => (
     <div key={e.technology} className="flex flex-col justify-center items-center mr-6 mb-6">
-      <Icon className="text-xl md:text-2xl mb-2 " title={e.technology} icon={iconList[e.technology]} />
+      <Icon
+        style={{ filter: 'drop-shadow( 0px 2px 2px rgba(0, 0, 0, .25))' }}
+        className="text-xl md:text-2xl mb-2"
+        title={e.technology}
+        icon={iconList[e.technology]}
+      />
       <p className="capitalize">{e.technology}</p>
     </div>
   ));
