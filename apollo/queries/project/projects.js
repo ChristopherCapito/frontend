@@ -1,9 +1,10 @@
 const PROJECTS_QUERY = `
   {
-    projects {
+    projects(sort:"publish_date:desc") {
       id
       title
       slug
+      publish_date
       number
       excerpt
       image {

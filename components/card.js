@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { m as motion } from 'framer-motion';
 import { FormatSectionNumber, getUrl } from '../utils/formatFunctions';
 
-const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
+const Card = ({ project: { slug, image, number, excerpt, title, publish_date }, left }) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -51,7 +51,8 @@ const Card = ({ project: { slug, image, number, excerpt, title }, left }) => {
             <motion.div variants={listItem}>
               <div id="title" className="text-lg lg:text-xl font-medium my-2">
                 <p className="text-light leading-none">
-                  <span className="text-accent leading-none">{FormatSectionNumber(number)}</span> {title}
+                  <span className="text-accent leading-none">{FormatSectionNumber(number)}</span> {title}{' '}
+                  <span className="text-sm font-medium text-accent">{publish_date}</span>
                 </p>
               </div>
             </motion.div>

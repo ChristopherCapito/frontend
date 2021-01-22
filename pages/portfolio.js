@@ -42,7 +42,8 @@ export default function Portfolio({ projects }) {
         <motion.div variants={container} initial="hidden" animate="show" exit="exit">
           <h1 className="md:text-xl lg:text-2xl text-icon font-medium mb-12">Take a look at these.</h1>
 
-          {projects.map((project) => {
+          {projects.map((project, i) => {
+            project.number = i + 1;
             const left = project.id % 2 === 0;
 
             return (
