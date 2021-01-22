@@ -18,20 +18,15 @@
     "graphql": "^15.4.0",
     "graphql-request": "^3.3.0",
     "markdown-to-jsx": "^7.1.0",
-    "next": "^10.0.5",
+    "next": "10.0.1",
     "next-compose-plugins": "^2.2.1",
-    "next-plugin-preact": "^3.0.3",
     "next-seo": "^4.17.0",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "preact": "^10.5.11",
-    "preact-compat": "^3.19.0",
-    "preact-render-to-string": "^5.1.12",
     "prop-types": "^15.7.2",
-    "react": "npm:@preact/compat",
+    "react": "17.0.1",
     "react-autosize-textarea": "^7.1.0",
     "react-cookie-consent": "^6.1.0",
-    "react-dom": "npm:@preact/compat",
-    "react-ssr-prepass": "npm:preact-ssr-prepass"
+    "react-dom": "17.0.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^3.0.0",
