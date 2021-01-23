@@ -4,7 +4,7 @@ import Image from '../image';
 
 const DoubleMedia = ({ mediaLeft, altTextLeft, mediaRight, altTextRight }) =>
   (mediaLeft || mediaRight) && (
-    <section className="container mx-auto ">
+    <section className="container mx-auto bg-light ">
       <div className="grid lg:grid-cols-2">
         <Image classes="w-full cover content-img object-contain" baseURL={mediaLeft} alt={altTextLeft} />
         <Image classes="w-full cover content-img object-contain" baseURL={mediaRight} alt={altTextRight} />

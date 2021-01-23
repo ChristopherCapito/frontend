@@ -4,7 +4,7 @@ import Image from '../image';
 
 const FullWidthMedia = ({ media, altText }) =>
   media && (
-    <section className="container mx-auto">
+    <section className="container mx-auto bg-light">
       <Image classes="w-full content-img object-contain" baseURL={media && media} alt={altText} />
     </section>
   );
