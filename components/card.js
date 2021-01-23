@@ -31,7 +31,7 @@ const Card = ({ project: { slug, image, number, excerpt, title, publish_date, Fr
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="mb-16 lg:mb-48"
+      className="mb-24 lg:mb-48"
     >
       <motion.div
         className="md:grid md:grid-cols-2 grid-flow-row gap-16"
