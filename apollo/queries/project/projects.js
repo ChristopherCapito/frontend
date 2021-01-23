@@ -11,6 +11,10 @@ const PROJECTS_QUERY = `
         caption
         alternativeText
       }
+      Frontmatter {
+        ghLink
+        titleLinkText
+      }
     }
   }
 `;
