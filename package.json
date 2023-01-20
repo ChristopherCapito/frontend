@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node utils/schemaQuery && next dev",
-    "build": "node utils/schemaQuery && next build && next export",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
