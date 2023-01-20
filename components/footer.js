@@ -31,7 +31,6 @@ const Footer = () => {
         </div>
         <div className="flex lg:flex-col justify-between mb-4 lg:mb-0 lg:mr-20">
           <Links nextLink href="/" text="Home" />
-          <Links nextLink href="/portfolio" text="Portfolio" />
           <Links nextLink href="/contact" text="Contact" />
         </div>
 

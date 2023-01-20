@@ -17,12 +17,6 @@ const Nav = () => (
             <Links nextLink href="/" text="Home" additionalClasses="mt-4 inline-block lg:mt-0  font-medium mr-4" />
             <Links
               nextLink
-              href="/portfolio"
-              text="Portfolio"
-              additionalClasses="mt-4 inline-block lg:mt-0  font-medium mr-4"
-            />
-            <Links
-              nextLink
               href="/contact"
               text="Contact"
               additionalClasses="mt-4 inline-block lg:mt-0  font-medium mr-4"

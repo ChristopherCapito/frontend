@@ -33,25 +33,10 @@ const Index = () => {
       <NextSeo {...SEO} />
       <motion.div variants={container} initial="hidden" animate="show" exit="exit" className="container mx-auto px-8">
         <motion.p variants={listItem} className="text-light text-lg font-medium lg:text-2xl lg:leading-tight">
-          I'm a web developer. Have a look at my <Links nextLink href="/portfolio" colored text="projects" /> and{' '}
-          <Links nextLink colored href="/contact" text="contact" /> me. If you need manpower, talk to my team over at{' '}
-          <span>
-            <Links colored href="http://das-andere.studio" text="Das Andere Studio" />
-          </span>
-          .
+          I'm a cloud consultant & software engineer. From a website to cloud-architected systems. For larger projects,
+          I have a network of associates for development.
         </motion.p>
         <motion.div variants={listItem} className="grid grid-cols-1 lg:grid-cols-3 text-light pt-8 lg:pt-16">
-          <div className="pb-10">
-            <p className="lg:text-md font-medium ">Why don't you see my</p>
-            <h2>
-              <Links
-                href="/portfolio"
-                nextLink
-                text="portfolio"
-                additionalClasses="text-md lg:text-xl leading-none font-medium"
-              />
-            </h2>
-          </div>
           <div className="pb-10">
             <p className="lg:text-md font-medium">Don't be shy, go and</p>
             <h2>
